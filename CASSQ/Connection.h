@@ -8,10 +8,11 @@
 
 #import <Foundation/Foundation.h>
 
-@interface Connection : NSObject
+@interface Connection : NSObject<NSURLConnectionDelegate, NSURLConnectionDataDelegate, NSXMLParserDelegate>
 
 @property (nonatomic, copy) void (^completionBlock)( NSError *err);
 
 - (void)start;
 - (id)initWithRequest:(NSURLRequest *)req;
+
 @end
