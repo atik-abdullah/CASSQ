@@ -7,9 +7,9 @@
 //
 
 #import "SurveyViewController.h"
+#import "Connection.h"
 
 @interface SurveyViewController ()
-@property (nonatomic, strong) NSMutableData *container;
 @end
 
 @implementation SurveyViewController
@@ -17,35 +17,18 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.container = [[NSMutableData alloc] init];
     [self fetchEntries];
 }
 
-#pragma mark - NSURLConnection
 
-- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
-{
-    [self.container appendData:data];
-}
-
-- (void)connectionDidFinishLoading:(NSURLConnection *)connection
-{
-    // We are just checking to make sure we are getting the XML
-    NSString *xmlCheck = [[NSString alloc] initWithData:self.container
-                                               encoding:NSUTF8StringEncoding];
-    NSLog(@"xmlCheck = %@", xmlCheck);
-}
 
 #pragma mark - Private function
 
 - (void)fetchEntries
 {
-    NSString *urlString = @"http://54.247.115.29/cass/MobileIO/XMLGen.php?uid=t26bd1bf56d4";
-    NSURL *url = [NSURL URLWithString:urlString];
-    NSURLRequest *req = [NSURLRequest requestWithURL:url];
-    [[NSURLConnection alloc] initWithRequest:req
-                                    delegate:self
-                            startImmediately:YES];
+    Connection *connection = [[Connection alloc] init];
+    // Begin the connection
+    [connection start];
 }
 
 @end

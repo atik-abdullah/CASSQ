@@ -18,6 +18,7 @@
 		FF3E42B616CD273500362B0B /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FF3E42B516CD273500362B0B /* Default-568h@2x.png */; };
 		FF3E42B916CD273500362B0B /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF3E42B716CD273500362B0B /* MainStoryboard.storyboard */; };
 		FF3E42C416CD277D00362B0B /* SurveyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF3E42C316CD277D00362B0B /* SurveyViewController.m */; };
+		FF3E42C816CD2F6E00362B0B /* Connection.m in Sources */ = {isa = PBXBuildFile; fileRef = FF3E42C716CD2F6E00362B0B /* Connection.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +38,8 @@
 		FF3E42B816CD273500362B0B /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		FF3E42C216CD277D00362B0B /* SurveyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SurveyViewController.h; sourceTree = "<group>"; };
 		FF3E42C316CD277D00362B0B /* SurveyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SurveyViewController.m; sourceTree = "<group>"; };
+		FF3E42C616CD2F6E00362B0B /* Connection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Connection.h; sourceTree = "<group>"; };
+		FF3E42C716CD2F6E00362B0B /* Connection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Connection.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +92,8 @@
 				FF3E42C216CD277D00362B0B /* SurveyViewController.h */,
 				FF3E42C316CD277D00362B0B /* SurveyViewController.m */,
 				FF3E42A616CD273400362B0B /* Supporting Files */,
+				FF3E42C616CD2F6E00362B0B /* Connection.h */,
+				FF3E42C716CD2F6E00362B0B /* Connection.m */,
 			);
 			path = CASSQ;
 			sourceTree = "<group>";
@@ -176,6 +181,7 @@
 				FF3E42AC16CD273400362B0B /* main.m in Sources */,
 				FF3E42B016CD273500362B0B /* AppDelegate.m in Sources */,
 				FF3E42C416CD277D00362B0B /* SurveyViewController.m in Sources */,
+				FF3E42C816CD2F6E00362B0B /* Connection.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
