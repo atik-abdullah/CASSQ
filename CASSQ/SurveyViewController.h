@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  SurveyViewController.h
 //  CASSQ
 //
 //  Created by Abdullah Atik on 2/14/13.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+@interface SurveyViewController : UITableViewController
 
 @end
