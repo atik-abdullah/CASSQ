@@ -9,5 +9,9 @@
 #import <Foundation/Foundation.h>
 
 @interface Connection : NSObject
+
+@property (nonatomic, copy) void (^completionBlock)( NSError *err);
+
 - (void)start;
+- (id)initWithRequest:(NSURLRequest *)req;
 @end

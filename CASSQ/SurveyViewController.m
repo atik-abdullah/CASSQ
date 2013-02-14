@@ -7,7 +7,7 @@
 //
 
 #import "SurveyViewController.h"
-#import "Connection.h"
+#import "FeedStore.h"
 
 @interface SurveyViewController ()
 @end
@@ -26,9 +26,21 @@
 
 - (void)fetchEntries
 {
-    Connection *connection = [[Connection alloc] init];
-    // Begin the connection
-    [connection start];
+    [[FeedStore sharedStore] fetchRSSFeedWithCompletion:
+     ^( NSError *err) {
+         // When the request completes, this block will be called.
+         if (!err) {
+         } else {
+             // If things went bad, show an alert view
+             UIAlertView *av = [[UIAlertView alloc]
+                                initWithTitle:@"Error"
+                                message:[err localizedDescription]
+                                delegate:nil
+                                cancelButtonTitle:@"OK"
+                                otherButtonTitles:nil];
+             [av show];
+         }
+     }];
 }
 
 @end

@@ -10,31 +10,41 @@
 
 @interface Connection ()
 @property (nonatomic, strong) NSMutableData *container;
+@property (nonatomic, strong) NSURLRequest *request;
+@property (nonatomic,strong) NSURLConnection *internalConnection;
 @end
+static NSMutableArray *sharedConnectionList = nil;
 
 @implementation Connection
-#pragma mark - NSURLConnection
+
+@synthesize completionBlock;
 
 
-- (id)init
+- (id)initWithRequest:(NSURLRequest *)req
 {
-    self = [super init];    
+    self = [super init];
     if (self) {
-        self.container = [[NSMutableData alloc] init];
-
+        [self setRequest:req];
     }
     return self;
 }
 
 - (void)start
 {
-    NSString *urlString = @"http://54.247.115.29/cass/MobileIO/XMLGen.php?uid=t26bd1bf56d4";
-    NSURL *url = [NSURL URLWithString:urlString];
-    NSURLRequest *req = [NSURLRequest requestWithURL:url];
-    [[NSURLConnection alloc] initWithRequest:req
-                                    delegate:self
-                            startImmediately:YES];
+    // Initialize container for data collected from NSURLConnection
+    self.container = [[NSMutableData alloc] init];
+    // Spawn connection
+    self.internalConnection = [[NSURLConnection alloc] initWithRequest:[self request]
+                                                         delegate:self
+                                                 startImmediately:YES];
+    // If this is the first connection started, create the array
+    if (!sharedConnectionList)
+        sharedConnectionList = [[NSMutableArray alloc] init];
+    // Add the connection to the array so it doesn't get destroyed
+    [sharedConnectionList addObject:self];
 }
+
+#pragma mark - NSURLConnection
 
 - (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
 {
