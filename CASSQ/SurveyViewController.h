@@ -8,8 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SurveyViewController : UITableViewController 
-
+@interface SurveyViewController : UITableViewController <NSFetchedResultsControllerDelegate>
 
 - (IBAction)  fetchEntries :(id) sender;
 
