@@ -8,6 +8,8 @@
 
 #import "SurveyViewController.h"
 #import "FeedStore.h"
+#import "QuestionViewController.h"
+#import "Survey.h"
 #import <Foundation/Foundation.h>
 
 @interface SurveyViewController ()
@@ -17,16 +19,8 @@
 
 @implementation SurveyViewController
 
-
-- (id)init
-{
-    self = [super init];
-    if (self)
-    {
-        // Custom initialization        
-    }
-    return self;
-}
+@synthesize editButton;
+@synthesize myTableView;
 
 - (void)viewDidLoad
 {
@@ -37,9 +31,32 @@
     self.fetchedResultsController = [[FeedStore sharedStore] fetchedResultsController];
     self.fetchedResultsController.delegate = self;
 
-    // First go to attribute and select toolbar in Bottom. Then do the following.
-    // Your toolbar won't appear if you don't enable it.
-    [self.navigationController setToolbarHidden:NO];
+//    // First go to attribute and select toolbar in Bottom. Then do the following.
+//    // Your toolbar won't appear if you don't enable it.
+//    [self.navigationController setToolbarHidden:NO];
+}
+
+//- (void)viewWillAppear:(BOOL)animated
+//{
+//    [super viewWillAppear:animated];
+//    // First go to attribute and select toolbar in Bottom. Then do the following.
+//    // Your toolbar won't appear if you don't enable it.
+//    // It's done in viewWillAppear because otherwise it won't appear
+//    // when return back from QuestionViewController
+//    [self.navigationController setToolbarHidden:NO];
+//}
+
+#pragma mark- UITableView Data source
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+        // Retrieve the particular survey of the selected row
+        Survey *selectedSurvey = (Survey *) [self.fetchedResultsController objectAtIndexPath:indexPath];
+                                           
+        // Drill down to survey to reveal questions inside it
+        QuestionViewController *display =[[QuestionViewController alloc] initWithSurvey:selectedSurvey];
+        // Push
+        [self.navigationController pushViewController: display animated:YES];
 }
 
 #pragma mark- UITableView Data source
@@ -63,7 +80,7 @@
          cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"plainCell";
-    UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    UITableViewCell *cell = [self.myTableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil)
     {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier] ;
@@ -112,12 +129,12 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
 
 - (void)controllerWillChangeContent:(NSFetchedResultsController *)controller
 {
-    [self.tableView beginUpdates];
+    [self.myTableView beginUpdates];
 }
 
 - (void)controllerDidChangeContent:(NSFetchedResultsController *)controller
 {
-    [self.tableView endUpdates];
+    [self.myTableView endUpdates];
 }
 
 - (void)controller:(NSFetchedResultsController *)controller
@@ -126,7 +143,7 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
      forChangeType:(NSFetchedResultsChangeType)type
       newIndexPath:(NSIndexPath *)newIndexPath
 {
-    UITableView *tableView = self.tableView;
+    UITableView *tableView = self.myTableView;
     
     switch(type)
     {
@@ -157,11 +174,11 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
     switch(type)
     {
         case NSFetchedResultsChangeInsert:
-            [self.tableView insertSections:[NSIndexSet indexSetWithIndex:sectionIndex] withRowAnimation:UITableViewRowAnimationFade];
+            [self.myTableView insertSections:[NSIndexSet indexSetWithIndex:sectionIndex] withRowAnimation:UITableViewRowAnimationFade];
             break;
             
         case NSFetchedResultsChangeDelete:
-            [self.tableView deleteSections:[NSIndexSet indexSetWithIndex:sectionIndex] withRowAnimation:UITableViewRowAnimationFade];
+            [self.myTableView deleteSections:[NSIndexSet indexSetWithIndex:sectionIndex] withRowAnimation:UITableViewRowAnimationFade];
             break;
     }
 }
@@ -171,12 +188,12 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
 - (IBAction)fetchEntries :(id) sender
 {
     [[FeedStore sharedStore] fetchRSSFeedWithCompletion:
-     ^(NSError *err) {
+     ^(NSError *err){
          // When the request completes, this block will be called.
          if (!err)
          {
              // Implement the 
-             [[self tableView] reloadData];
+             [[self myTableView] reloadData];
          }
          
          else
@@ -195,12 +212,12 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
 
 - (IBAction)toggleEdit:(id)sender
 {
-    [self.tableView setEditing:!self.tableView.editing animated:YES];
+    [self.myTableView setEditing:!self.myTableView.editing animated:YES];
     
-    if (self.tableView.editing)
-        [self.navigationItem.rightBarButtonItem setTitle:@"Done"]; // To set the title
+    if (self.myTableView.editing)
+        [self.editButton setTitle:@"Done"]; // To set the title
     else
-        [self.navigationItem.rightBarButtonItem setTitle:@"Edit"]; // To set the title
+        [self.editButton setTitle:@"Edit"]; // To set the title
 }
 
 @end

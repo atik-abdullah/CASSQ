@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FF2F913D16CE9E59009063F4 /* QuestionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF2F913C16CE9E59009063F4 /* QuestionViewController.m */; };
 		FF3E42A016CD273400362B0B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF3E429F16CD273400362B0B /* UIKit.framework */; };
 		FF3E42A216CD273400362B0B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF3E42A116CD273400362B0B /* Foundation.framework */; };
 		FF3E42A416CD273400362B0B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF3E42A316CD273400362B0B /* CoreGraphics.framework */; };
@@ -28,6 +29,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FF2F913B16CE9E59009063F4 /* QuestionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuestionViewController.h; sourceTree = "<group>"; };
+		FF2F913C16CE9E59009063F4 /* QuestionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuestionViewController.m; sourceTree = "<group>"; };
 		FF3E429C16CD273400362B0B /* CASSQ.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CASSQ.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF3E429F16CD273400362B0B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		FF3E42A116CD273400362B0B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -152,6 +155,8 @@
 				FF3E42C716CD2F6E00362B0B /* Connection.m */,
 				FF3E42C916CD323A00362B0B /* FeedStore.h */,
 				FF3E42CA16CD323A00362B0B /* FeedStore.m */,
+				FF2F913B16CE9E59009063F4 /* QuestionViewController.h */,
+				FF2F913C16CE9E59009063F4 /* QuestionViewController.m */,
 			);
 			name = controller;
 			path = ..;
@@ -232,6 +237,7 @@
 				FF3E42D416CD774A00362B0B /* Item.m in Sources */,
 				FF3E42D716CD774B00362B0B /* Survey.m in Sources */,
 				FF3E42DA16CD774B00362B0B /* Option.m in Sources */,
+				FF2F913D16CE9E59009063F4 /* QuestionViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -354,6 +360,7 @@
 				FF3E42C116CD273500362B0B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

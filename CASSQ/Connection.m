@@ -198,10 +198,10 @@ didStartElement:(NSString *)elementName
 {
     [self.characterBuffer appendString:[NSString stringWithFormat:@"%@",str]];
    
-    if (![self stringIsEmpty:str]) {
-        NSLog(@"question is %@",self.characterBuffer);
+    if (![self stringIsEmpty:str])
+    {
+        self.aItem.question  = self.characterBuffer ;
     }
-    
 }
 
 #pragma mark - Utility methods

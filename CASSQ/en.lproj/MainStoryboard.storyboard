@@ -4,13 +4,65 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
     <scenes>
+        <!--Survey View Controller-->
+        <scene sceneID="Se6-BA-xSQ">
+            <objects>
+                <viewController id="yr5-VC-sVc" customClass="SurveyViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="OQV-b6-KIM">
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="C22-hL-BRU">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="yr5-VC-sVc" id="7hU-AO-STb"/>
+                                    <outlet property="delegate" destination="yr5-VC-sVc" id="ivq-hv-9Qg"/>
+                                </connections>
+                            </tableView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3aU-pD-o2W">
+                                <items>
+                                    <barButtonItem title="Fetch" id="rl0-UJ-IRI">
+                                        <connections>
+                                            <action selector="fetchEntries:" destination="yr5-VC-sVc" id="5m8-yf-4de"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="C22-hL-BRU" firstAttribute="top" secondItem="OQV-b6-KIM" secondAttribute="top" type="default" id="9ay-TZ-2Fe"/>
+                            <constraint firstItem="C22-hL-BRU" firstAttribute="trailing" secondItem="OQV-b6-KIM" secondAttribute="trailing" type="default" id="CcP-tv-EAI"/>
+                            <constraint firstItem="3aU-pD-o2W" firstAttribute="bottom" secondItem="OQV-b6-KIM" secondAttribute="bottom" type="default" id="JlP-gR-5m1"/>
+                            <constraint firstItem="3aU-pD-o2W" firstAttribute="trailing" secondItem="OQV-b6-KIM" secondAttribute="trailing" type="default" id="NI8-ws-PaW"/>
+                            <constraint firstItem="C22-hL-BRU" firstAttribute="leading" secondItem="OQV-b6-KIM" secondAttribute="leading" type="default" id="iBh-Ee-dLD"/>
+                            <constraint firstItem="3aU-pD-o2W" firstAttribute="leading" secondItem="OQV-b6-KIM" secondAttribute="leading" type="default" id="kIU-9V-CwQ"/>
+                            <constraint firstItem="C22-hL-BRU" firstAttribute="bottom" secondItem="3aU-pD-o2W" secondAttribute="top" type="default" id="kpG-dc-Mp2"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="lhX-oV-4Bg">
+                        <barButtonItem key="leftBarButtonItem" title="Edit" id="jef-DW-v2J">
+                            <connections>
+                                <action selector="toggleEdit:" destination="yr5-VC-sVc" id="4eF-Cc-GUF"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="editButton" destination="jef-DW-v2J" id="V1x-2h-0rw"/>
+                        <outlet property="myTableView" destination="C22-hL-BRU" id="YxH-g7-VIr"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wmv-F9-Jpr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-631" y="-710"/>
+        </scene>
         <!--Survey View Controller - Survey-->
         <scene sceneID="VX4-xE-wuf">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Evf-hl-jez" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController id="ZC9-9y-gV3" customClass="SurveyViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="GrX-XR-y2u">
-                        <rect key="frame" x="0.0" y="64" width="320" height="460"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -40,9 +92,12 @@
                         </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="editButton" destination="PbW-yC-MwD" id="wZZ-DW-rbq"/>
+                    </connections>
                 </tableViewController>
             </objects>
-            <point key="canvasLocation" x="-461" y="-715"/>
+            <point key="canvasLocation" x="-288" y="-724"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="hyp-fE-yBR">
@@ -52,7 +107,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="ZC9-9y-gV3" kind="relationship" relationship="rootViewController" id="xzh-zr-Ep3"/>
+                        <segue destination="yr5-VC-sVc" kind="relationship" relationship="rootViewController" id="UpQ-cU-kVd"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mmp-YQ-wRz" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -61,11 +116,16 @@
         </scene>
     </scenes>
     <classes>
-        <class className="SurveyViewController" superclassName="UITableViewController">
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="SurveyViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/SurveyViewController.h"/>
             <relationships>
                 <relationship kind="action" name="fetchEntries:"/>
                 <relationship kind="action" name="toggleEdit:"/>
+                <relationship kind="outlet" name="editButton" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="myTableView" candidateClass="UITableView"/>
             </relationships>
         </class>
     </classes>

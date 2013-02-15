@@ -8,7 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SurveyViewController : UITableViewController <NSFetchedResultsControllerDelegate>
+@interface SurveyViewController : UIViewController <NSFetchedResultsControllerDelegate , UITableViewDataSource, UITableViewDelegate>
+
+@property (nonatomic , weak) IBOutlet  UIBarButtonItem *editButton;
+@property (nonatomic , weak) IBOutlet  UITableView *myTableView;
 
 - (IBAction)  fetchEntries :(id) sender;
 - (IBAction)  toggleEdit:(id)sender;
