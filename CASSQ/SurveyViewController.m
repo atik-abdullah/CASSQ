@@ -42,7 +42,7 @@
     [self.navigationController setToolbarHidden:NO];
 }
 
-#pragma mark- UITableView Delegate
+#pragma mark- UITableView Data source
 
 - (NSInteger)tableView:(UITableView *)tableView
  numberOfRowsInSection:(NSInteger)section
@@ -77,6 +77,33 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return [[self.fetchedResultsController sections] count];
+}
+
+// Override to support editing the table view.
+- (void)tableView:(UITableView *)tableView
+commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
+forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (editingStyle == UITableViewCellEditingStyleDelete)
+    {
+        // Delete the managed object for the given index path
+        NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];
+        [context deleteObject:[self.fetchedResultsController objectAtIndexPath:indexPath]];
+        
+        // Save the context.
+        NSError *error = nil;
+        if (![context save:&error])
+        {
+            NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+            abort();
+        }
+    }
+}
+
+- (void)setEditing:(BOOL)editing animated:(BOOL)animated
+{    
+    // Prevent new objects being added when in editing mode.
+    [super setEditing:(BOOL)editing animated:(BOOL)animated];
 }
 
 #pragma mark- FetchedResultsController Delegate
@@ -141,7 +168,7 @@
 
 #pragma mark - Private function
 
-- (void)fetchEntries :(id) sender
+- (IBAction)fetchEntries :(id) sender
 {
     [[FeedStore sharedStore] fetchRSSFeedWithCompletion:
      ^(NSError *err) {
@@ -164,6 +191,16 @@
              [av show];
          }
      }];
+}
+
+- (IBAction)toggleEdit:(id)sender
+{
+    [self.tableView setEditing:!self.tableView.editing animated:YES];
+    
+    if (self.tableView.editing)
+        [self.navigationItem.rightBarButtonItem setTitle:@"Done"]; // To set the title
+    else
+        [self.navigationItem.rightBarButtonItem setTitle:@"Edit"]; // To set the title
 }
 
 @end

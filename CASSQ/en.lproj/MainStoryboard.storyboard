@@ -4,7 +4,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
     <scenes>
-        <!--Survey View Controller - Root View Controller-->
+        <!--Survey View Controller - Survey-->
         <scene sceneID="VX4-xE-wuf">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Evf-hl-jez" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -32,7 +32,13 @@
                             </connections>
                         </barButtonItem>
                     </toolbarItems>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="DeY-8U-FD4"/>
+                    <navigationItem key="navigationItem" title="Survey" id="DeY-8U-FD4">
+                        <barButtonItem key="leftBarButtonItem" title="Edit" id="PbW-yC-MwD">
+                            <connections>
+                                <action selector="toggleEdit:" destination="ZC9-9y-gV3" id="hdd-4u-zul"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </tableViewController>
             </objects>
@@ -59,6 +65,7 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/SurveyViewController.h"/>
             <relationships>
                 <relationship kind="action" name="fetchEntries:"/>
+                <relationship kind="action" name="toggleEdit:"/>
             </relationships>
         </class>
     </classes>

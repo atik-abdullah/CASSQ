@@ -11,5 +11,6 @@
 @interface SurveyViewController : UITableViewController <NSFetchedResultsControllerDelegate>
 
 - (IBAction)  fetchEntries :(id) sender;
+- (IBAction)  toggleEdit:(id)sender;
 
 @end
