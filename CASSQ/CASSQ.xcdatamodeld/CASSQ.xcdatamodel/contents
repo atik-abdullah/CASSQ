@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1810" systemVersion="11G63" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Item" representedClassName="Item" syncable="YES">
+        <attribute name="answered" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="answerText" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="category" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="max" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="maxLabel" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="min" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="minLabel" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="photo" optional="YES" attributeType="Transformable" syncable="YES"/>
+        <attribute name="q_id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="question" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="selectedAID" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="visible" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <relationship name="option" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Option" inverseName="item" inverseEntity="Option" syncable="YES"/>
+        <relationship name="survey" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Survey" inverseName="item" inverseEntity="Survey" syncable="YES"/>
+    </entity>
+    <entity name="Option" representedClassName="Option" syncable="YES">
+        <attribute name="category" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="content" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="o_id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="value" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="item" optional="YES" minCount="1" maxCount="1" deletionRule="Cascade" destinationEntity="Item" inverseName="option" inverseEntity="Item" syncable="YES"/>
+    </entity>
+    <entity name="Survey" representedClassName="Survey" syncable="YES">
+        <attribute name="message" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="submitted" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="surveyCount" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="surveyId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="surveyTotal" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="timeStamp" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="uid" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="username" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="item" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Item" inverseName="survey" inverseEntity="Item" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Item" positionX="421" positionY="48" width="128" height="255"/>
+        <element name="Option" positionX="-27" positionY="204" width="128" height="120"/>
+        <element name="Survey" positionX="153" positionY="99" width="128" height="180"/>
+    </elements>
+</model>

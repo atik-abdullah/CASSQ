@@ -9,6 +9,9 @@
 #import <Foundation/Foundation.h>
 
 @interface FeedStore : NSObject
+
+@property (nonatomic, retain) NSFetchedResultsController *fetchedResultsController;
+
 + (FeedStore *)sharedStore;
 - (void)fetchRSSFeedWithCompletion:(void (^)(NSError *err))block;
 

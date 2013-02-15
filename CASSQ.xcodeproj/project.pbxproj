@@ -20,6 +20,11 @@
 		FF3E42C416CD277D00362B0B /* SurveyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF3E42C316CD277D00362B0B /* SurveyViewController.m */; };
 		FF3E42C816CD2F6E00362B0B /* Connection.m in Sources */ = {isa = PBXBuildFile; fileRef = FF3E42C716CD2F6E00362B0B /* Connection.m */; };
 		FF3E42CB16CD323A00362B0B /* FeedStore.m in Sources */ = {isa = PBXBuildFile; fileRef = FF3E42CA16CD323A00362B0B /* FeedStore.m */; };
+		FF3E42D116CD771900362B0B /* CASSQ.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FF3E42CF16CD771900362B0B /* CASSQ.xcdatamodeld */; };
+		FF3E42D416CD774A00362B0B /* Item.m in Sources */ = {isa = PBXBuildFile; fileRef = FF3E42D316CD774A00362B0B /* Item.m */; };
+		FF3E42D716CD774B00362B0B /* Survey.m in Sources */ = {isa = PBXBuildFile; fileRef = FF3E42D616CD774B00362B0B /* Survey.m */; };
+		FF3E42DA16CD774B00362B0B /* Option.m in Sources */ = {isa = PBXBuildFile; fileRef = FF3E42D916CD774B00362B0B /* Option.m */; };
+		FF3E42DE16CD7A8200362B0B /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF3E42DD16CD7A8200362B0B /* CoreData.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,18 +36,26 @@
 		FF3E42A916CD273400362B0B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		FF3E42AB16CD273400362B0B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		FF3E42AD16CD273400362B0B /* CASSQ-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CASSQ-Prefix.pch"; sourceTree = "<group>"; };
-		FF3E42AE16CD273400362B0B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		FF3E42AF16CD273500362B0B /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		FF3E42AE16CD273400362B0B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = CASSQ/AppDelegate.h; sourceTree = "<group>"; };
+		FF3E42AF16CD273500362B0B /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = CASSQ/AppDelegate.m; sourceTree = "<group>"; };
 		FF3E42B116CD273500362B0B /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		FF3E42B316CD273500362B0B /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		FF3E42B516CD273500362B0B /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		FF3E42B816CD273500362B0B /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
-		FF3E42C216CD277D00362B0B /* SurveyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SurveyViewController.h; sourceTree = "<group>"; };
-		FF3E42C316CD277D00362B0B /* SurveyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SurveyViewController.m; sourceTree = "<group>"; };
-		FF3E42C616CD2F6E00362B0B /* Connection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Connection.h; sourceTree = "<group>"; };
-		FF3E42C716CD2F6E00362B0B /* Connection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Connection.m; sourceTree = "<group>"; };
-		FF3E42C916CD323A00362B0B /* FeedStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedStore.h; sourceTree = "<group>"; };
-		FF3E42CA16CD323A00362B0B /* FeedStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedStore.m; sourceTree = "<group>"; };
+		FF3E42C216CD277D00362B0B /* SurveyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SurveyViewController.h; path = CASSQ/SurveyViewController.h; sourceTree = "<group>"; };
+		FF3E42C316CD277D00362B0B /* SurveyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SurveyViewController.m; path = CASSQ/SurveyViewController.m; sourceTree = "<group>"; };
+		FF3E42C616CD2F6E00362B0B /* Connection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Connection.h; path = CASSQ/Connection.h; sourceTree = "<group>"; };
+		FF3E42C716CD2F6E00362B0B /* Connection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Connection.m; path = CASSQ/Connection.m; sourceTree = "<group>"; };
+		FF3E42C916CD323A00362B0B /* FeedStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FeedStore.h; path = CASSQ/FeedStore.h; sourceTree = "<group>"; };
+		FF3E42CA16CD323A00362B0B /* FeedStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FeedStore.m; path = CASSQ/FeedStore.m; sourceTree = "<group>"; };
+		FF3E42D016CD771900362B0B /* CASSQ.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CASSQ.xcdatamodel; sourceTree = "<group>"; };
+		FF3E42D216CD774A00362B0B /* Item.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Item.h; path = CASSQ/Item.h; sourceTree = "<group>"; };
+		FF3E42D316CD774A00362B0B /* Item.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Item.m; path = CASSQ/Item.m; sourceTree = "<group>"; };
+		FF3E42D516CD774A00362B0B /* Survey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Survey.h; path = CASSQ/Survey.h; sourceTree = "<group>"; };
+		FF3E42D616CD774B00362B0B /* Survey.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Survey.m; path = CASSQ/Survey.m; sourceTree = "<group>"; };
+		FF3E42D816CD774B00362B0B /* Option.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Option.h; path = CASSQ/Option.h; sourceTree = "<group>"; };
+		FF3E42D916CD774B00362B0B /* Option.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Option.m; path = CASSQ/Option.m; sourceTree = "<group>"; };
+		FF3E42DD16CD7A8200362B0B /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,6 +63,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FF3E42DE16CD7A8200362B0B /* CoreData.framework in Frameworks */,
 				FF3E42A016CD273400362B0B /* UIKit.framework in Frameworks */,
 				FF3E42A216CD273400362B0B /* Foundation.framework in Frameworks */,
 				FF3E42A416CD273400362B0B /* CoreGraphics.framework in Frameworks */,
@@ -79,6 +93,7 @@
 		FF3E429E16CD273400362B0B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FF3E42DD16CD7A8200362B0B /* CoreData.framework */,
 				FF3E429F16CD273400362B0B /* UIKit.framework */,
 				FF3E42A116CD273400362B0B /* Foundation.framework */,
 				FF3E42A316CD273400362B0B /* CoreGraphics.framework */,
@@ -89,15 +104,8 @@
 		FF3E42A516CD273400362B0B /* CASSQ */ = {
 			isa = PBXGroup;
 			children = (
-				FF3E42AE16CD273400362B0B /* AppDelegate.h */,
-				FF3E42AF16CD273500362B0B /* AppDelegate.m */,
-				FF3E42B716CD273500362B0B /* MainStoryboard.storyboard */,
-				FF3E42C216CD277D00362B0B /* SurveyViewController.h */,
-				FF3E42C316CD277D00362B0B /* SurveyViewController.m */,
-				FF3E42C616CD2F6E00362B0B /* Connection.h */,
-				FF3E42C716CD2F6E00362B0B /* Connection.m */,
-				FF3E42C916CD323A00362B0B /* FeedStore.h */,
-				FF3E42CA16CD323A00362B0B /* FeedStore.m */,
+				FF3E42DC16CD778300362B0B /* controller */,
+				FF3E42DB16CD776200362B0B /* model */,
 				FF3E42A616CD273400362B0B /* Supporting Files */,
 			);
 			path = CASSQ;
@@ -106,6 +114,8 @@
 		FF3E42A616CD273400362B0B /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				FF3E42B716CD273500362B0B /* MainStoryboard.storyboard */,
+				FF3E42CF16CD771900362B0B /* CASSQ.xcdatamodeld */,
 				FF3E42A716CD273400362B0B /* CASSQ-Info.plist */,
 				FF3E42A816CD273400362B0B /* InfoPlist.strings */,
 				FF3E42AB16CD273400362B0B /* main.m */,
@@ -115,6 +125,36 @@
 				FF3E42B516CD273500362B0B /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		FF3E42DB16CD776200362B0B /* model */ = {
+			isa = PBXGroup;
+			children = (
+				FF3E42D816CD774B00362B0B /* Option.h */,
+				FF3E42D916CD774B00362B0B /* Option.m */,
+				FF3E42D516CD774A00362B0B /* Survey.h */,
+				FF3E42D616CD774B00362B0B /* Survey.m */,
+				FF3E42D216CD774A00362B0B /* Item.h */,
+				FF3E42D316CD774A00362B0B /* Item.m */,
+			);
+			name = model;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		FF3E42DC16CD778300362B0B /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				FF3E42AE16CD273400362B0B /* AppDelegate.h */,
+				FF3E42AF16CD273500362B0B /* AppDelegate.m */,
+				FF3E42C216CD277D00362B0B /* SurveyViewController.h */,
+				FF3E42C316CD277D00362B0B /* SurveyViewController.m */,
+				FF3E42C616CD2F6E00362B0B /* Connection.h */,
+				FF3E42C716CD2F6E00362B0B /* Connection.m */,
+				FF3E42C916CD323A00362B0B /* FeedStore.h */,
+				FF3E42CA16CD323A00362B0B /* FeedStore.m */,
+			);
+			name = controller;
+			path = ..;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -188,6 +228,10 @@
 				FF3E42C416CD277D00362B0B /* SurveyViewController.m in Sources */,
 				FF3E42C816CD2F6E00362B0B /* Connection.m in Sources */,
 				FF3E42CB16CD323A00362B0B /* FeedStore.m in Sources */,
+				FF3E42D116CD771900362B0B /* CASSQ.xcdatamodeld in Sources */,
+				FF3E42D416CD774A00362B0B /* Item.m in Sources */,
+				FF3E42D716CD774B00362B0B /* Survey.m in Sources */,
+				FF3E42DA16CD774B00362B0B /* Option.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -312,6 +356,19 @@
 			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		FF3E42CF16CD771900362B0B /* CASSQ.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				FF3E42D016CD771900362B0B /* CASSQ.xcdatamodel */,
+			);
+			currentVersion = FF3E42D016CD771900362B0B /* CASSQ.xcdatamodel */;
+			path = CASSQ.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = FF3E429416CD273400362B0B /* Project object */;
 }

@@ -8,6 +8,10 @@
 
 // Imports
 #import "Connection.h"
+#import "Survey.h"
+#import "Option.h"
+#import "Item.h"
+#import "AppDelegate.h"
 
 // Private
 @interface Connection ()
@@ -15,6 +19,11 @@
 @property (nonatomic, strong) NSURLRequest *request;
 @property (nonatomic,strong) NSURLConnection *internalConnection;
 @property (strong, nonatomic)  NSMutableString *characterBuffer;
+@property (strong, nonatomic) Survey *aSurvey;
+@property (strong, nonatomic) Item *aItem;
+@property (strong, nonatomic) Option *aOption;
+@property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
+
 @end
 
 // Static variable
@@ -30,6 +39,8 @@ static NSMutableArray *sharedConnectionList = nil;
     self = [super init];
     if (self) {
         [self setRequest:req];
+        self.managedObjectContext = [(AppDelegate *)[[UIApplication sharedApplication] delegate] managedObjectContext];
+
     }
     return self;
 }
@@ -70,15 +81,18 @@ static NSMutableArray *sharedConnectionList = nil;
     NSString *xmlCheck = [[NSString alloc] initWithData:self.container
                                                encoding:NSUTF8StringEncoding];
     NSLog(@"xmlCheck = %@", xmlCheck);
+    
+    if ([self completionBlock])
+        [self completionBlock](nil);
+        // Now, destroy this connection
+        [sharedConnectionList removeObject:self];
 }
 
 - (void)connection:(NSURLConnection *)connection
   didFailWithError:(NSError *)error
 {
     // Pass the error from the connection to the completionBlock
-    if ([self completionBlock])
-        [self completionBlock](error);
-    
+    if ([self completionBlock])    
     // Destroy this connection
     [sharedConnectionList removeObject:self];
 }
@@ -93,11 +107,13 @@ didStartElement:(NSString *)elementName
 {
     if ([elementName isEqual:@"survey"])
     {
-        NSLog(@"username, %@",[attributeDict objectForKey:@"username"]);
-        NSLog(@"uid, %@",[attributeDict objectForKey:@"uid"]);
-        NSLog(@"surveyId, %@",[attributeDict objectForKey:@"surveyId"]);
-        NSLog(@"surveyCount, %@",[attributeDict objectForKey:@"surveyCount"]);
-        NSLog(@"surveyTotal, %@",[attributeDict objectForKey:@"surveyTotal"]);
+        self.aSurvey = (Survey *) [NSEntityDescription insertNewObjectForEntityForName:@"Survey" inManagedObjectContext:self.managedObjectContext];
+        self.aSurvey.timeStamp = [[NSDate alloc] init];
+        self.aSurvey.username  = [attributeDict objectForKey:@"username"];
+        self.aSurvey.uid = [attributeDict objectForKey:@"uid"];
+        self.aSurvey.surveyId = [attributeDict objectForKey:@"surveyId"];
+        self.aSurvey.surveyCount = [attributeDict objectForKey:@"surveyCount"];
+        self.aSurvey.surveyTotal = [attributeDict objectForKey:@"surveyTotal"];
     }
     
     else if ([elementName isEqual:@"item"])
@@ -106,31 +122,78 @@ didStartElement:(NSString *)elementName
         // every time element "item" is encountered we need a fresh characterBuffer
         self.characterBuffer = [[NSMutableString alloc] init];
         
-        NSLog(@"item type, %@",[attributeDict objectForKey:@"type"]);
-        NSLog(@"item q_id, %@",[attributeDict objectForKey:@"q_id"]);
-
+        self.aItem = (Item *) [NSEntityDescription insertNewObjectForEntityForName:@"Item" inManagedObjectContext:self.managedObjectContext];
+        
+        // set item category
+        self.aItem.category  = [attributeDict objectForKey:@"category"];
+        
+        // Set item visibility
+        if([[attributeDict objectForKey:@"category"] isEqual: @"0"]){
+            //Entity Defines bool as NSNumber , so you cant directly assign bool values YES or NO , such as aItem.visible = TRUE is not possible.
+            self.aItem.visible = [NSNumber numberWithBool:YES];
+        }
+        else
+            self.aItem.visible = [NSNumber numberWithBool:NO];
+        
+        // Set item type
+        self.aItem.type  = [attributeDict objectForKey:@"type"];
+        
+        // Set item q_id
+        self.aItem.q_id  = [attributeDict objectForKey:@"q_id"];
+        
+        // Set item min and max
         if([attributeDict objectForKey:@"min"] && [attributeDict objectForKey:@"max"])
         {
-            NSLog(@"item min, %@",[attributeDict objectForKey:@"min"]);
-            NSLog(@"item max, %@",[attributeDict objectForKey:@"max"]);
-
+            self.aItem.min  = [attributeDict objectForKey:@"min"];
+            self.aItem.max  = [attributeDict objectForKey:@"max"];
         }
-        if([attributeDict objectForKey:@"minlabel"] && [attributeDict objectForKey:@"maxlabel"])
-        {
-            NSLog(@"item minlabel, %@",[attributeDict objectForKey:@"minlabel"]);
-            NSLog(@"item maxlabel, %@",[attributeDict objectForKey:@"maxlabel"]);
-
+        
+        // Set item minlabel and maxlabel
+        if([attributeDict objectForKey:@"minlabel"] && [attributeDict objectForKey:@"maxlabel"]){
+            self.aItem.minLabel  = [attributeDict objectForKey:@"minlabel"];
+            self.aItem.maxLabel  = [attributeDict objectForKey:@"maxlabel"];
         }
     }
     
     else if ([elementName isEqual:@"option"])
     {
-        NSLog(@"option value, %@",[attributeDict objectForKey:@"value"]);
-        NSLog(@"option o_id, %@",[attributeDict objectForKey:@"o_id"]);
-        NSLog(@"option category, %@",[attributeDict objectForKey:@"category"]);
+        self.aOption = (Option *) [NSEntityDescription insertNewObjectForEntityForName:@"Option" inManagedObjectContext:self.managedObjectContext];
+        
+        // Set option value
+        self.aOption.value = [attributeDict objectForKey:@"value"];
+        
+        // Set option o_id
+        self.aOption.o_id = [attributeDict objectForKey:@"o_id"];
+        
+        // Set option category
+        self.aOption.category = [attributeDict objectForKey:@"category"];
     }
 }
 
+- (void)parser:(NSXMLParser *)parser
+ didEndElement:(NSString *)elementName
+  namespaceURI:(NSString *)namespaceURI
+ qualifiedName:(NSString *)qName{
+    
+    
+    if ([elementName isEqual:@"item"])
+    {
+        [self.aSurvey addItemObject:self.aItem];
+    }
+    
+    if ([elementName isEqual:@"option"])
+    {
+        [self.aItem addOptionObject:self.aOption];
+    }
+    if ([elementName isEqual:@"survey"]) {
+        
+        //save the whole survey at once, previously I was saving it in wrong places and as a result the last Item was not being added to the survey
+        if(![self.managedObjectContext save:nil]){
+            abort();
+        }
+    }
+  
+}
 - (void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)str
 {
     [self.characterBuffer appendString:[NSString stringWithFormat:@"%@",str]];

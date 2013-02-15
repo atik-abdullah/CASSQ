@@ -8,8 +8,11 @@
 
 #import "FeedStore.h"
 #import "Connection.h"
+#import "AppDelegate.h"
 
 @implementation FeedStore
+
+@synthesize fetchedResultsController = fetchedResultsController_;
 
 + (FeedStore *)sharedStore
 {
@@ -30,5 +33,43 @@
     [connection setCompletionBlock:block];
     // Begin the connection
     [connection start];
+}
+
+#pragma mark- Fetched results controller
+
+- (NSFetchedResultsController *)fetchedResultsController {
+    
+    if (fetchedResultsController_ != nil) {
+        return fetchedResultsController_;
+    }
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    // Edit the entity name as appropriate.
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Survey" inManagedObjectContext:[(AppDelegate *)[[UIApplication sharedApplication] delegate] managedObjectContext] ];
+    
+    //Set the Entity for the fetchRequest
+    [fetchRequest setEntity:entity];
+    // Set the batch size to a suitable number.
+    [fetchRequest setFetchBatchSize:20];
+    
+    // Edit the sort key as appropriate.
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"timeStamp" ascending:YES];
+    NSArray *sortDescriptors = [[NSArray alloc] initWithObjects:sortDescriptor, nil];
+    
+    //Set the sort Descriptor for the Fetch Request
+    [fetchRequest setSortDescriptors:sortDescriptors];
+    
+    
+    // Edit the section name key path and cache name if appropriate.
+    // nil for section name key path means "no sections".
+    NSFetchedResultsController *aFetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:[(AppDelegate *)[[UIApplication sharedApplication] delegate] managedObjectContext] sectionNameKeyPath:nil cacheName:@"Root"];
+    self.fetchedResultsController = aFetchedResultsController;
+    
+    
+    NSError *error = nil;
+    if (![fetchedResultsController_ performFetch:&error]) {
+        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+        abort();
+    }
+    return fetchedResultsController_;
 }
 @end
