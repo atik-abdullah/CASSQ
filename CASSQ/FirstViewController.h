@@ -18,5 +18,7 @@
 @property (nonatomic, weak) IBOutlet UITextView *answer;
 @property (nonatomic, weak) IBOutlet UIScrollView *scrollView;
 @property (nonatomic, weak) IBOutlet UIButton *answerButton;
-@property float keyboardHeight;
+
+- (IBAction)doDone:(id)sender;
+
 @end
