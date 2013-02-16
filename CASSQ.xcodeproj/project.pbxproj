@@ -151,12 +151,12 @@
 				FF3E42AF16CD273500362B0B /* AppDelegate.m */,
 				FF3E42C216CD277D00362B0B /* SurveyViewController.h */,
 				FF3E42C316CD277D00362B0B /* SurveyViewController.m */,
+				FF2F913B16CE9E59009063F4 /* QuestionViewController.h */,
+				FF2F913C16CE9E59009063F4 /* QuestionViewController.m */,
 				FF3E42C616CD2F6E00362B0B /* Connection.h */,
 				FF3E42C716CD2F6E00362B0B /* Connection.m */,
 				FF3E42C916CD323A00362B0B /* FeedStore.h */,
 				FF3E42CA16CD323A00362B0B /* FeedStore.m */,
-				FF2F913B16CE9E59009063F4 /* QuestionViewController.h */,
-				FF2F913C16CE9E59009063F4 /* QuestionViewController.m */,
 			);
 			name = controller;
 			path = ..;

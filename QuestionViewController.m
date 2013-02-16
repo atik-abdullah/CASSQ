@@ -20,6 +20,7 @@
 // Synthesized Public properties
 @synthesize survey;
 @synthesize items;
+@synthesize selection;
 
 - (id)initWithSurvey:(Survey *)surv
 {
@@ -35,6 +36,7 @@
 {
 	[super viewWillAppear:animated];
     
+    self.survey = [selection objectForKey:@"survey"];
     // Fetch all Item of this particular Survery
     NSMutableArray *sortedItems = [[NSMutableArray alloc] initWithArray:[survey.item allObjects]];
 
@@ -65,17 +67,61 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView
          cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    //I was getting NSArray beyond bound exception error because in numberOfRowsInSection method it was returning [survey.item count];
+    Item *itm = [items objectAtIndex:[indexPath row]];
+    
+    NSString *identifier = nil;
+    if ([itm.type isEqualToString:@"1"])
+    {
+        identifier = @"cellFirstType";
+    }
+    else if ([itm.type isEqual:@"2"])
+    {
+        identifier = @"cellSecondType";
+    }
+    else if ([itm.type isEqual:@"3"])
+    {
+        identifier = @"cellThirdType";
+    }
+    else if ([itm.type isEqual:@"4"])
+    {
+        identifier = @"cellFourthType";
+    }
+    else if ([itm.type isEqual:@"5"])
+    {
+        identifier = @"cellFifthType";
+    }
+    else if ([itm.type isEqual:@"6"])
+    {
+        identifier = @"cellSixthType";
+    }
+    else if ([itm.type isEqual:@"7"])
+    {
+        identifier = @"cellSeventhType";
+    }
+    else if ([itm.type isEqual:@"8"])
+    {
+        identifier = @"cellEighthType";
+    }
+    else if ([itm.type isEqual:@"9"])
+    {
+        identifier = @"cellNinethType";
+    }
+    else if ([itm.type isEqual:@"10"])
+    {
+        identifier = @"celTenthType";
+    }
+    UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:identifier];
+    
     if (cell == nil)
     {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
-                                      reuseIdentifier:CellIdentifier] ;
+                                      reuseIdentifier:identifier] ;
     }
     
-    //I was getting NSArray beyond bound exception error because in numberOfRowsInSection method it was returning [survey.item count];
-    Item *itm = [items objectAtIndex:[indexPath row]];
-    cell.textLabel.text = itm.question;
+    // Configure the cell...
+    UILabel *cellLabel = (UILabel *)[cell viewWithTag:1];
+    cellLabel.text = itm.question;
     return cell;
 }
 

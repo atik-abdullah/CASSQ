@@ -30,33 +30,23 @@
     // Reload in fetchEntries to add the new fetched data in the list
     self.fetchedResultsController = [[FeedStore sharedStore] fetchedResultsController];
     self.fetchedResultsController.delegate = self;
-
-//    // First go to attribute and select toolbar in Bottom. Then do the following.
-//    // Your toolbar won't appear if you don't enable it.
-//    [self.navigationController setToolbarHidden:NO];
 }
-
-//- (void)viewWillAppear:(BOOL)animated
-//{
-//    [super viewWillAppear:animated];
-//    // First go to attribute and select toolbar in Bottom. Then do the following.
-//    // Your toolbar won't appear if you don't enable it.
-//    // It's done in viewWillAppear because otherwise it won't appear
-//    // when return back from QuestionViewController
-//    [self.navigationController setToolbarHidden:NO];
-//}
 
 #pragma mark- UITableView Data source
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-        // Retrieve the particular survey of the selected row
+    UIViewController *destination = segue.destinationViewController;
+    if ([destination respondsToSelector:@selector(setSelection:)]) {
+        // prepare selection info
+        NSIndexPath *indexPath = [self.myTableView indexPathForCell:sender];
+
         Survey *selectedSurvey = (Survey *) [self.fetchedResultsController objectAtIndexPath:indexPath];
-                                           
-        // Drill down to survey to reveal questions inside it
-        QuestionViewController *display =[[QuestionViewController alloc] initWithSurvey:selectedSurvey];
-        // Push
-        [self.navigationController pushViewController: display animated:YES];
+        NSDictionary *selection = [NSDictionary dictionaryWithObjectsAndKeys:
+                                   selectedSurvey, @"survey",
+                                   nil];
+        [destination setValue:selection forKey:@"selection"];
+    }
 }
 
 #pragma mark- UITableView Data source
@@ -72,14 +62,18 @@
 {
     NSManagedObject *managedObject = [self.fetchedResultsController objectAtIndexPath:indexPath];
     NSString *surveyName=@"Survey ID : ";
-    cell.textLabel.text = [surveyName stringByAppendingString:[[managedObject valueForKey:@"surveyId"] description]];
-    cell.detailTextLabel.text = [[managedObject valueForKey:@"timeStamp"] description] ;
+    // Configure the cell...
+    UILabel *cellQuestionLabel = (UILabel *)[cell viewWithTag:1];
+    cellQuestionLabel.text = [surveyName stringByAppendingString:[[managedObject valueForKey:@"surveyId"] description]];
+    
+    UILabel *cellTimestampLabel = (UILabel *)[cell viewWithTag:2];
+    cellTimestampLabel.text = [[managedObject valueForKey:@"timeStamp"] description];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView
          cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"plainCell";
+    static NSString *CellIdentifier = @"cell";
     UITableViewCell *cell = [self.myTableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil)
     {
@@ -118,7 +112,7 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
 }
 
 - (void)setEditing:(BOOL)editing animated:(BOOL)animated
-{    
+{
     // Prevent new objects being added when in editing mode.
     [super setEditing:(BOOL)editing animated:(BOOL)animated];
 }
@@ -192,7 +186,7 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
          // When the request completes, this block will be called.
          if (!err)
          {
-             // Implement the 
+             // Implement the
              [[self myTableView] reloadData];
          }
          
