@@ -15,7 +15,6 @@
 
 // Properties
 @property(nonatomic, strong) Survey *survey;   // Assigned when this view contoller is pushed
-@property(nonatomic, strong) NSMutableArray *items; // Data source for this view controller
 @property (nonatomic, copy) NSDictionary *selection;
 
 - (id)initWithSurvey:(Survey *)survey;

@@ -20,7 +20,6 @@
 
 // Implementation Begin
 @implementation ThirdViewController
-@synthesize saveButton;
 
 - (void)viewDidLoad
 {
@@ -131,7 +130,7 @@
     [[self.item managedObjectContext] save:nil];
     
     // Change the button text to inform the user if the question has been asnwered successfully
-	[saveButton setTitle:@"Saved" forState:UIControlStateNormal] ;
+	[self.saveButton setTitle:@"Saved" forState:UIControlStateNormal] ;
 }
 
 #pragma mark - Utility Methods

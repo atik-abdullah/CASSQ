@@ -16,8 +16,6 @@
 @end
 
 @implementation SecondViewController
-@synthesize picker;
-@synthesize selectButton;
 
 - (void)viewDidLoad
 {

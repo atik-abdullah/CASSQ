@@ -971,6 +971,9 @@
                                 <constraints>
                                     <constraint firstAttribute="width" constant="287" id="Mex-uv-2sT"/>
                                 </constraints>
+                                <connections>
+                                    <action selector="sliderChanged:" destination="PJO-Mc-ELf" eventType="valueChanged" id="Fbs-fn-O5p"/>
+                                </connections>
                             </slider>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="jDj-6x-WfI">
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -1031,6 +1034,9 @@
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="saveAnswer:" destination="PJO-Mc-ELf" eventType="touchUpInside" id="qRM-bl-Fwg"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -1058,7 +1064,14 @@
                     </view>
                     <navigationItem key="navigationItem" id="H9f-Q8-ndS"/>
                     <connections>
+                        <outlet property="max" destination="aA2-4Y-Nhj" id="2AG-UP-tU0"/>
+                        <outlet property="maxLabel" destination="NEm-UV-lLA" id="FBn-2G-7pj"/>
+                        <outlet property="min" destination="JcX-by-t22" id="Iyz-Dj-8EI"/>
+                        <outlet property="minLabel" destination="NpS-qA-UmD" id="7P8-Qh-xNZ"/>
                         <outlet property="question" destination="jDj-6x-WfI" id="Kfw-NM-e1k"/>
+                        <outlet property="saveButton" destination="D16-6a-tq0" id="rzw-IW-V8X"/>
+                        <outlet property="slider" destination="xRI-UF-jMa" id="IHo-sp-GRa"/>
+                        <outlet property="sliderLabel" destination="Jf1-QA-Cno" id="vRa-Bg-wXc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xTK-1S-9wz" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1066,6 +1079,102 @@
             <point key="canvasLocation" x="2268" y="-1362"/>
         </scene>
     </scenes>
+    <classes>
+        <class className="EighthViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/EighthViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="question" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="FifthViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FifthViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="question" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="FirstViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FirstViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="doDone:"/>
+                <relationship kind="action" name="saveAnswer:"/>
+                <relationship kind="outlet" name="answer" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="answerButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="question" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
+            </relationships>
+        </class>
+        <class className="FourthViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FourthViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="saveAnswer:"/>
+                <relationship kind="outlet" name="answerButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="question" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="NinethViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NinethViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="saveAnswer:"/>
+                <relationship kind="action" name="sliderChanged:"/>
+                <relationship kind="outlet" name="max" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="maxLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="min" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="minLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="question" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="saveButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="slider" candidateClass="UISlider"/>
+                <relationship kind="outlet" name="sliderLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="QuestionViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/QuestionViewController.h"/>
+        </class>
+        <class className="SecondViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SecondViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="saveAnswer:"/>
+                <relationship kind="outlet" name="picker" candidateClass="UIPickerView"/>
+                <relationship kind="outlet" name="question" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="selectButton" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+        <class className="SeventhViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SeventhViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="question" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="SixthViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SixthViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="question" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="SurveyViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SurveyViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="fetchEntries:"/>
+                <relationship kind="action" name="toggleEdit:"/>
+                <relationship kind="outlet" name="editButton" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="myTableView" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="ThirdViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ThirdViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="playPressed:"/>
+                <relationship kind="action" name="recordPressed:"/>
+                <relationship kind="action" name="saveAnswer:"/>
+                <relationship kind="outlet" name="playButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="question" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="recordButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="saveButton" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

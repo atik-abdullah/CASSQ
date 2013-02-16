@@ -11,7 +11,6 @@
 #import "AppDelegate.h"
 
 @implementation FeedStore
-
 @synthesize fetchedResultsController = fetchedResultsController_;
 
 + (FeedStore *)sharedStore

@@ -19,9 +19,6 @@
 
 @implementation SurveyViewController
 
-@synthesize editButton;
-@synthesize myTableView;
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];

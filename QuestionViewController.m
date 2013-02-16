@@ -11,16 +11,11 @@
 
 // Private properties
 @interface QuestionViewController ()
-
+@property(nonatomic, strong) NSMutableArray *items; // Data source for this view controller
 @end
 
 // Implmentation Begin
 @implementation QuestionViewController
-
-// Synthesized Public properties
-@synthesize survey;
-@synthesize items;
-@synthesize selection;
 
 - (id)initWithSurvey:(Survey *)surv
 {
@@ -36,9 +31,9 @@
 {
 	[super viewWillAppear:animated];
     
-    self.survey = [selection objectForKey:@"survey"];
+    self.survey = [self.selection objectForKey:@"survey"];
     // Fetch all Item of this particular Survery
-    NSMutableArray *sortedItems = [[NSMutableArray alloc] initWithArray:[survey.item allObjects]];
+    NSMutableArray *sortedItems = [[NSMutableArray alloc] initWithArray:[self.survey.item allObjects]];
     
     // Create a sort Descriptor
     NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"q_id" ascending:YES];
@@ -68,7 +63,7 @@
          cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     //I was getting NSArray beyond bound exception error because in numberOfRowsInSection method it was returning [survey.item count];
-    Item *itm = [items objectAtIndex:[indexPath row]];
+    Item *itm = [self.items objectAtIndex:[indexPath row]];
     
     NSString *identifier = nil;
     if ([itm.type isEqualToString:@"1"])
