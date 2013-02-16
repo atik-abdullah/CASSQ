@@ -933,6 +933,9 @@
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="recordVideo:" destination="JtR-p7-0vN" eventType="touchUpInside" id="KWu-KL-mTF"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EsA-Oa-68S">
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
@@ -943,6 +946,9 @@
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="saveAnswer:" destination="JtR-p7-0vN" eventType="touchUpInside" id="d68-n1-PhU"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -961,6 +967,7 @@
                     <navigationItem key="navigationItem" id="wYA-yz-lPB"/>
                     <connections>
                         <outlet property="question" destination="2wG-Ha-Jwo" id="DOO-Io-ZbP"/>
+                        <outlet property="saveButton" destination="EsA-Oa-68S" id="GQY-fO-9Af"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rfp-Tm-ugx" userLabel="First Responder" sceneMemberID="firstResponder"/>

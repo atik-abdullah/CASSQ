@@ -29,28 +29,6 @@
     }
 }
 
-- (IBAction)takePicture:(id)sender
-{
-    UIImagePickerController *imagePicker =[[UIImagePickerController alloc] init];
-    
-    // If our device has a camera, we want to take a picture, otherwise, we just pick from photo library
-    if ([UIImagePickerController
-         isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera])
-    {
-        [imagePicker setSourceType:UIImagePickerControllerSourceTypeCamera];
-    }
-    else
-    {
-        [imagePicker setSourceType:UIImagePickerControllerSourceTypePhotoLibrary];
-    }
-    
-    // This line of code will generate a warning right now, ignore it
-    [imagePicker setDelegate:self];
-    
-    // Place image picker on the screen
-    [self presentViewController:imagePicker animated:YES completion:nil];
-}
-
 - (void)imagePickerController:(UIImagePickerController *)picker
 didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
@@ -66,9 +44,7 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
-
-
-
+#pragma mark- IBAction Methods
 - (IBAction)saveAnswer:(id)sender
 {
     // Create name of the audio file which should have "photo_2013.02.16._17_11.20.jpg" format.
@@ -117,4 +93,27 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
     // Change button text to inform user that he has answered successfully
     [self.saveButton setTitle:@"Answered" forState:UIControlStateNormal] ;
 }
+
+- (IBAction)takePicture:(id)sender
+{
+    UIImagePickerController *imagePicker =[[UIImagePickerController alloc] init];
+    
+    // If our device has a camera, we want to take a picture, otherwise, we just pick from photo library
+    if ([UIImagePickerController
+         isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera])
+    {
+        [imagePicker setSourceType:UIImagePickerControllerSourceTypeCamera];
+    }
+    else
+    {
+        [imagePicker setSourceType:UIImagePickerControllerSourceTypePhotoLibrary];
+    }
+    
+    // This line of code will generate a warning right now, ignore it
+    [imagePicker setDelegate:self];
+    
+    // Place image picker on the screen
+    [self presentViewController:imagePicker animated:YES completion:nil];
+}
+
 @end
