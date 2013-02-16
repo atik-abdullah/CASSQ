@@ -58,8 +58,8 @@
 		FF3E42C316CD277D00362B0B /* SurveyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SurveyViewController.m; path = CASSQ/SurveyViewController.m; sourceTree = "<group>"; };
 		FF3E42C616CD2F6E00362B0B /* Connection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Connection.h; path = CASSQ/Connection.h; sourceTree = "<group>"; };
 		FF3E42C716CD2F6E00362B0B /* Connection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Connection.m; path = CASSQ/Connection.m; sourceTree = "<group>"; };
-		FF3E42C916CD323A00362B0B /* FeedStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FeedStore.h; path = CASSQ/FeedStore.h; sourceTree = "<group>"; };
-		FF3E42CA16CD323A00362B0B /* FeedStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FeedStore.m; path = CASSQ/FeedStore.m; sourceTree = "<group>"; };
+		FF3E42C916CD323A00362B0B /* FeedStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedStore.h; sourceTree = "<group>"; };
+		FF3E42CA16CD323A00362B0B /* FeedStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedStore.m; sourceTree = "<group>"; };
 		FF3E42D016CD771900362B0B /* CASSQ.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CASSQ.xcdatamodel; sourceTree = "<group>"; };
 		FF3E42D216CD774A00362B0B /* Item.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Item.h; path = CASSQ/Item.h; sourceTree = "<group>"; };
 		FF3E42D316CD774A00362B0B /* Item.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Item.m; path = CASSQ/Item.m; sourceTree = "<group>"; };
@@ -134,6 +134,7 @@
 		FF3E42A516CD273400362B0B /* CASSQ */ = {
 			isa = PBXGroup;
 			children = (
+				FFF3836816CFB1E00074CF28 /* store */,
 				FF3E42DC16CD778300362B0B /* controller */,
 				FF3E42DB16CD776200362B0B /* model */,
 				FF3E42A616CD273400362B0B /* Supporting Files */,
@@ -160,6 +161,8 @@
 		FF3E42DB16CD776200362B0B /* model */ = {
 			isa = PBXGroup;
 			children = (
+				FF3E42C616CD2F6E00362B0B /* Connection.h */,
+				FF3E42C716CD2F6E00362B0B /* Connection.m */,
 				FF3E42D816CD774B00362B0B /* Option.h */,
 				FF3E42D916CD774B00362B0B /* Option.m */,
 				FF3E42D516CD774A00362B0B /* Survey.h */,
@@ -198,13 +201,18 @@
 				FFF3836316CFAA500074CF28 /* EighthViewController.m */,
 				FFF3836516CFAAF90074CF28 /* NinethViewController.h */,
 				FFF3836616CFAAF90074CF28 /* NinethViewController.m */,
-				FF3E42C616CD2F6E00362B0B /* Connection.h */,
-				FF3E42C716CD2F6E00362B0B /* Connection.m */,
-				FF3E42C916CD323A00362B0B /* FeedStore.h */,
-				FF3E42CA16CD323A00362B0B /* FeedStore.m */,
 			);
 			name = controller;
 			path = ..;
+			sourceTree = "<group>";
+		};
+		FFF3836816CFB1E00074CF28 /* store */ = {
+			isa = PBXGroup;
+			children = (
+				FF3E42C916CD323A00362B0B /* FeedStore.h */,
+				FF3E42CA16CD323A00362B0B /* FeedStore.m */,
+			);
+			name = store;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

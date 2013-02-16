@@ -8,9 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SecondViewController : UIViewController
+@interface SecondViewController : UIViewController < UIPickerViewDelegate, UIPickerViewDataSource >
 
 // Public properties
 @property (nonatomic, copy) NSDictionary *postSelection;
 @property (nonatomic, weak) IBOutlet UILabel *question;
+@property (weak, nonatomic) IBOutlet UIPickerView *picker;
+@property (weak, nonatomic) IBOutlet UIButton *selectButton;
+
+- (IBAction) saveAnswer:(id)sender;
+
 @end
