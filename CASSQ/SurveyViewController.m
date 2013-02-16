@@ -37,7 +37,8 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     UIViewController *destination = segue.destinationViewController;
-    if ([destination respondsToSelector:@selector(setSelection:)]) {
+    if ([destination respondsToSelector:@selector(setSelection:)])
+    {
         // prepare selection info
         NSIndexPath *indexPath = [self.myTableView indexPathForCell:sender];
 
@@ -62,6 +63,7 @@
 {
     NSManagedObject *managedObject = [self.fetchedResultsController objectAtIndexPath:indexPath];
     NSString *surveyName=@"Survey ID : ";
+    
     // Configure the cell...
     UILabel *cellQuestionLabel = (UILabel *)[cell viewWithTag:1];
     cellQuestionLabel.text = [surveyName stringByAppendingString:[[managedObject valueForKey:@"surveyId"] description]];

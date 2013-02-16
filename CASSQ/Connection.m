@@ -173,9 +173,8 @@ didStartElement:(NSString *)elementName
 - (void)parser:(NSXMLParser *)parser
  didEndElement:(NSString *)elementName
   namespaceURI:(NSString *)namespaceURI
- qualifiedName:(NSString *)qName{
-    
-    
+ qualifiedName:(NSString *)qName
+{
     if ([elementName isEqual:@"item"])
     {
         [self.aSurvey addItemObject:self.aItem];
@@ -185,10 +184,11 @@ didStartElement:(NSString *)elementName
     {
         [self.aItem addOptionObject:self.aOption];
     }
-    if ([elementName isEqual:@"survey"]) {
-        
+    if ([elementName isEqual:@"survey"])
+    {
         //save the whole survey at once, previously I was saving it in wrong places and as a result the last Item was not being added to the survey
-        if(![self.managedObjectContext save:nil]){
+        if(![self.managedObjectContext save:nil])
+        {
             abort();
         }
     }

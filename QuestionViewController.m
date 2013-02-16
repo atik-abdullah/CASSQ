@@ -39,14 +39,14 @@
     self.survey = [selection objectForKey:@"survey"];
     // Fetch all Item of this particular Survery
     NSMutableArray *sortedItems = [[NSMutableArray alloc] initWithArray:[survey.item allObjects]];
-
+    
     // Create a sort Descriptor
     NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"q_id" ascending:YES];
 	NSArray *sortDescriptors =[[NSArray alloc] initWithObjects:sortDescriptor,nil];
-
+    
     // Execute the sort descriptor
     [sortedItems sortUsingDescriptors:sortDescriptors];
-
+    
     // Assing sortedItems to the data source of this table view
     self.items=sortedItems;
 }
@@ -125,4 +125,20 @@
     return cell;
 }
 
+# pragma mark - Segue
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    UIViewController *destination = segue.destinationViewController;
+    if ([destination respondsToSelector:@selector(setPostSelection:)])
+    {
+        // prepare selection info
+        NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
+        Item *selectedItem= [self.items objectAtIndex:indexPath.row];        
+        NSDictionary *postSelection = [NSDictionary dictionaryWithObjectsAndKeys:
+                                       selectedItem, @"selectedItem",
+                                       nil];
+        [destination setValue:postSelection forKey:@"postSelection"];
+    }
+}
 @end

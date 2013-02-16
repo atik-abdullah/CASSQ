@@ -6,12 +6,14 @@
 //  Copyright (c) 2013 Abdullah Atik. All rights reserved.
 //
 
+// Import and Header
 #import <UIKit/UIKit.h>
 #import "Survey.h"
 #import "Item.h"
 
 @interface QuestionViewController : UITableViewController
 
+// Properties
 @property(nonatomic, strong) Survey *survey;   // Assigned when this view contoller is pushed
 @property(nonatomic, strong) NSMutableArray *items; // Data source for this view controller
 @property (nonatomic, copy) NSDictionary *selection;

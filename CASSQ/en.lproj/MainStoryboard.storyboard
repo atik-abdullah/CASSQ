@@ -376,10 +376,10 @@
             </objects>
             <point key="canvasLocation" x="-245" y="-734"/>
         </scene>
-        <!--View Controller-->
+        <!--First View Controller-->
         <scene sceneID="G0B-bE-3jm">
             <objects>
-                <viewController id="jaC-Qw-5tQ" sceneMemberID="viewController">
+                <viewController id="jaC-Qw-5tQ" customClass="FirstViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="k6C-Ie-yWc">
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -457,6 +457,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="L8W-xt-vad"/>
+                    <connections>
+                        <outlet property="answer" destination="EoE-Qn-95h" id="cTb-1e-Vvw"/>
+                        <outlet property="answerButton" destination="Mrb-xj-Q2K" id="42J-mP-q75"/>
+                        <outlet property="question" destination="jaa-u6-g0c" id="KIm-Cz-Hw6"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IW3-aU-IkQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -988,6 +993,32 @@
             <point key="canvasLocation" x="2268" y="-1362"/>
         </scene>
     </scenes>
+    <classes>
+        <class className="FirstViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FirstViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="answer" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="answerButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="question" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
+            </relationships>
+        </class>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="QuestionViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/QuestionViewController.h"/>
+        </class>
+        <class className="SurveyViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SurveyViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="fetchEntries:"/>
+                <relationship kind="action" name="toggleEdit:"/>
+                <relationship kind="outlet" name="editButton" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="myTableView" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
