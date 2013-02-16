@@ -20,5 +20,6 @@
 @property (nonatomic, weak) IBOutlet UIButton *answerButton;
 
 - (IBAction)doDone:(id)sender;
+- (IBAction)saveAnswer:(id)sender;
 
 @end

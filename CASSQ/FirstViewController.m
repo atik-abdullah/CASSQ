@@ -22,6 +22,7 @@
 @synthesize postSelection;
 @synthesize question;
 @synthesize answer;
+@synthesize answerButton;
 
 - (void)viewDidLoad
 {
@@ -29,6 +30,7 @@
     self.item = [self.postSelection objectForKey:@"selectedItem"];
     self.scrollView.contentSize = CGSizeMake(320, 550);
     self.question.text = self.item.question;
+    self.answer.text = self.item.answerText;
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -89,6 +91,21 @@
 - (void)doDone:(id)sender
 {
     [self.view endEditing:NO];
+}
+
+- (IBAction)saveAnswer:(id)sender
+{
+    self.item.answerText = answer.text;
+    if ([self.answer.text isEqualToString:@""])
+    {
+        self.item.answered = [NSNumber numberWithBool:NO];
+    }
+    else
+    {
+        self.item.answered = [NSNumber numberWithBool:YES];
+    }
+    [[self.item managedObjectContext] save:nil];
+    [self.answerButton setTitle:@"Answered" forState:UIControlStateNormal] ;
 }
 
 @end
