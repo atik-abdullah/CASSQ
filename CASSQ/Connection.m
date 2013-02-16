@@ -76,12 +76,7 @@ static NSMutableArray *sharedConnectionList = nil;
     NSXMLParser *parser = [[NSXMLParser alloc] initWithData:self.container];
     [parser setDelegate:self];
     [parser parse];
-    
-    // We are just checking to make sure we are getting the XML
-    NSString *xmlCheck = [[NSString alloc] initWithData:self.container
-                                               encoding:NSUTF8StringEncoding];
-    NSLog(@"xmlCheck = %@", xmlCheck);
-    
+   
     if ([self completionBlock])
         [self completionBlock](nil);
         // Now, destroy this connection
@@ -194,6 +189,7 @@ didStartElement:(NSString *)elementName
     }
   
 }
+
 - (void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)str
 {
     [self.characterBuffer appendString:[NSString stringWithFormat:@"%@",str]];
@@ -205,11 +201,10 @@ didStartElement:(NSString *)elementName
 }
 
 #pragma mark - Utility methods
-
 //In the objective C there is no elegant way to check if the string is empty, i.e. nil or empty space.
 // I found a solution http://i-phone-dev.blogspot.fi/2011/11/iphone-nsstring-operations.html
-- (BOOL ) stringIsEmpty:(NSString *) aString {
-    
+- (BOOL ) stringIsEmpty:(NSString *) aString
+{    
     if ((NSNull *) aString == [NSNull null])
     {
         return YES;

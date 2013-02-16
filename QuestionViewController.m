@@ -109,7 +109,7 @@
     }
     else if ([itm.type isEqual:@"10"])
     {
-        identifier = @"celTenthType";
+        identifier = @"cellTenthType";
     }
     UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:identifier];
     

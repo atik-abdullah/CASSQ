@@ -8,9 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FourthViewController : UIViewController
+@interface FourthViewController : UIViewController < UITableViewDelegate, UITableViewDataSource >
 
 // Public properties
 @property (nonatomic, copy) NSDictionary *postSelection;
 @property (nonatomic, weak) IBOutlet UILabel *question;
+@property (nonatomic, weak) IBOutlet UIButton *answerButton;
+
+- (IBAction)saveAnswer:(id)sender;
+
 @end

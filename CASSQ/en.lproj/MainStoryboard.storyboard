@@ -341,11 +341,11 @@
                                     <segue destination="PJO-Mc-ELf" kind="push" id="we4-bX-qo8"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="cellTenthType" id="AkM-V0-hUl">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="cellTenthType" id="AkM-V0-hUl">
                                 <rect key="frame" x="0.0" y="418" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="300" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="1" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E85-70-55N">
@@ -353,7 +353,6 @@
                                                 <constraint firstAttribute="width" constant="142" id="2fn-As-vW5"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" white="0.25" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                             <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </label>
                                     </subviews>
@@ -363,6 +362,9 @@
                                     <constraint firstItem="E85-70-55N" firstAttribute="top" secondItem="AkM-V0-hUl" secondAttribute="top" constant="11" id="4R0-ij-bZF"/>
                                     <constraint firstItem="E85-70-55N" firstAttribute="leading" secondItem="AkM-V0-hUl" secondAttribute="leading" constant="39" id="zxg-B7-WCQ"/>
                                 </constraints>
+                                <connections>
+                                    <segue destination="U2O-qA-psV" kind="push" id="yAX-jB-Rxr"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -467,6 +469,7 @@
                         <outlet property="answer" destination="EoE-Qn-95h" id="cTb-1e-Vvw"/>
                         <outlet property="answerButton" destination="Mrb-xj-Q2K" id="42J-mP-q75"/>
                         <outlet property="question" destination="jaa-u6-g0c" id="KIm-Cz-Hw6"/>
+                        <outlet property="scrollView" destination="Bw6-Bs-Ftq" id="FiA-Zf-qAD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IW3-aU-IkQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -652,12 +655,6 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="jnQ-2z-r2K">
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="249" id="n7U-E1-CzB"/>
-                                </constraints>
-                            </tableView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="774-WZ-d0c">
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -679,24 +676,49 @@
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="saveAnswer:" destination="U2O-qA-psV" eventType="touchUpInside" id="XmE-rm-ApN"/>
+                                </connections>
                             </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="singleLineEtched" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" translatesAutoresizingMaskIntoConstraints="NO" id="Wux-u6-GvQ">
+                                <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="275" id="ntf-M9-KRr"/>
+                                    <constraint firstAttribute="width" constant="326" id="tQD-uw-NTy"/>
+                                </constraints>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" restorationIdentifier="UITableViewCell" selectionStyle="blue" indentationWidth="10" reuseIdentifier="UITableViewCell" id="2Xr-u9-Xv0">
+                                        <rect key="frame" x="0.0" y="46" width="326" height="46"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="10" y="1" width="306" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="U2O-qA-psV" id="Iyb-U5-VqI"/>
+                                    <outlet property="delegate" destination="U2O-qA-psV" id="vit-dx-HiW"/>
+                                </connections>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="774-WZ-d0c" firstAttribute="top" secondItem="2PW-WC-5jP" secondAttribute="top" type="default" id="0q3-uc-rxx"/>
                             <constraint firstItem="2Eh-ks-fPb" firstAttribute="leading" secondItem="2PW-WC-5jP" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="4LL-eR-R11"/>
-                            <constraint firstAttribute="bottom" secondItem="2Eh-ks-fPb" secondAttribute="bottom" constant="91" id="4cU-qQ-9SM"/>
+                            <constraint firstAttribute="bottom" secondItem="2Eh-ks-fPb" secondAttribute="bottom" constant="20" symbolic="YES" type="default" id="JZO-YZ-foo"/>
                             <constraint firstItem="774-WZ-d0c" firstAttribute="leading" secondItem="2PW-WC-5jP" secondAttribute="leading" type="default" id="KXt-JA-7o4"/>
                             <constraint firstItem="774-WZ-d0c" firstAttribute="trailing" secondItem="2PW-WC-5jP" secondAttribute="trailing" type="default" id="Vy6-SC-0TG"/>
                             <constraint firstAttribute="trailing" secondItem="2Eh-ks-fPb" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="YOp-AY-83F"/>
-                            <constraint firstAttribute="trailing" secondItem="jnQ-2z-r2K" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="nmr-pG-Utv"/>
-                            <constraint firstItem="jnQ-2z-r2K" firstAttribute="top" secondItem="2PW-WC-5jP" secondAttribute="top" constant="100" id="oRK-Pq-eAj"/>
-                            <constraint firstItem="jnQ-2z-r2K" firstAttribute="leading" secondItem="2PW-WC-5jP" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="xFZ-hc-EPc"/>
+                            <constraint firstItem="Wux-u6-GvQ" firstAttribute="trailing" secondItem="2PW-WC-5jP" secondAttribute="trailing" type="default" id="g00-Xv-r1t"/>
+                            <constraint firstItem="Wux-u6-GvQ" firstAttribute="top" secondItem="2PW-WC-5jP" secondAttribute="top" constant="80" id="xEt-m4-M3g"/>
                         </constraints>
                         <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
                     </view>
                     <navigationItem key="navigationItem" id="5p2-Cy-d1G"/>
                     <connections>
+                        <outlet property="answerButton" destination="2Eh-ks-fPb" id="ibh-wX-YYV"/>
                         <outlet property="question" destination="774-WZ-d0c" id="DdV-qq-yQV"/>
                     </connections>
                 </viewController>
@@ -1049,4 +1071,7 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="yAX-jB-Rxr"/>
+    </inferredMetricsTieBreakers>
 </document>

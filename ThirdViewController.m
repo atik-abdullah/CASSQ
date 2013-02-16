@@ -118,7 +118,6 @@
     
     // Save the name of the file on the database
     self.item.answerText = nameString;
-    NSLog(@"audio name %@", nameString);
     
     if ([manager fileExistsAtPath:outputPath])
     {
