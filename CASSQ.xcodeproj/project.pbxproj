@@ -35,6 +35,8 @@
 		FFF3835E16CFA9C70074CF28 /* SeventhViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFF3835D16CFA9C70074CF28 /* SeventhViewController.m */; };
 		FFF3836416CFAA500074CF28 /* EighthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFF3836316CFAA500074CF28 /* EighthViewController.m */; };
 		FFF3836716CFAAFA0074CF28 /* NinethViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFF3836616CFAAF90074CF28 /* NinethViewController.m */; };
+		FFF3836B16CFC14D0074CF28 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFF3836916CFC0F60074CF28 /* AudioToolbox.framework */; };
+		FFF3836E16CFC1820074CF28 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFF3836C16CFC15E0074CF28 /* AVFoundation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -86,6 +88,8 @@
 		FFF3836316CFAA500074CF28 /* EighthViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EighthViewController.m; path = CASSQ/EighthViewController.m; sourceTree = "<group>"; };
 		FFF3836516CFAAF90074CF28 /* NinethViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NinethViewController.h; path = CASSQ/NinethViewController.h; sourceTree = "<group>"; };
 		FFF3836616CFAAF90074CF28 /* NinethViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NinethViewController.m; path = CASSQ/NinethViewController.m; sourceTree = "<group>"; };
+		FFF3836916CFC0F60074CF28 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		FFF3836C16CFC15E0074CF28 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +97,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FFF3836E16CFC1820074CF28 /* AVFoundation.framework in Frameworks */,
+				FFF3836B16CFC14D0074CF28 /* AudioToolbox.framework in Frameworks */,
 				FF3E42DE16CD7A8200362B0B /* CoreData.framework in Frameworks */,
 				FF3E42A016CD273400362B0B /* UIKit.framework in Frameworks */,
 				FF3E42A216CD273400362B0B /* Foundation.framework in Frameworks */,
@@ -123,10 +129,12 @@
 		FF3E429E16CD273400362B0B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FFF3836916CFC0F60074CF28 /* AudioToolbox.framework */,
+				FFF3836C16CFC15E0074CF28 /* AVFoundation.framework */,
 				FF3E42DD16CD7A8200362B0B /* CoreData.framework */,
-				FF3E429F16CD273400362B0B /* UIKit.framework */,
-				FF3E42A116CD273400362B0B /* Foundation.framework */,
 				FF3E42A316CD273400362B0B /* CoreGraphics.framework */,
+				FF3E42A116CD273400362B0B /* Foundation.framework */,
+				FF3E429F16CD273400362B0B /* UIKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
