@@ -27,6 +27,14 @@
 		FF3E42DA16CD774B00362B0B /* Option.m in Sources */ = {isa = PBXBuildFile; fileRef = FF3E42D916CD774B00362B0B /* Option.m */; };
 		FF3E42DE16CD7A8200362B0B /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF3E42DD16CD7A8200362B0B /* CoreData.framework */; };
 		FFF3834C16CF9AB50074CF28 /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFF3834B16CF9AB50074CF28 /* FirstViewController.m */; };
+		FFF3834F16CFA5BB0074CF28 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFF3834E16CFA5BB0074CF28 /* SecondViewController.m */; };
+		FFF3835216CFA7A00074CF28 /* ThirdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFF3835116CFA7A00074CF28 /* ThirdViewController.m */; };
+		FFF3835516CFA8460074CF28 /* FourthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFF3835416CFA8460074CF28 /* FourthViewController.m */; };
+		FFF3835816CFA8C40074CF28 /* FifthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFF3835716CFA8C40074CF28 /* FifthViewController.m */; };
+		FFF3835B16CFA9350074CF28 /* SixthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFF3835A16CFA9350074CF28 /* SixthViewController.m */; };
+		FFF3835E16CFA9C70074CF28 /* SeventhViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFF3835D16CFA9C70074CF28 /* SeventhViewController.m */; };
+		FFF3836416CFAA500074CF28 /* EighthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFF3836316CFAA500074CF28 /* EighthViewController.m */; };
+		FFF3836716CFAAFA0074CF28 /* NinethViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFF3836616CFAAF90074CF28 /* NinethViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,6 +70,22 @@
 		FF3E42DD16CD7A8200362B0B /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		FFF3834A16CF9AB50074CF28 /* FirstViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FirstViewController.h; path = CASSQ/FirstViewController.h; sourceTree = "<group>"; };
 		FFF3834B16CF9AB50074CF28 /* FirstViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FirstViewController.m; path = CASSQ/FirstViewController.m; sourceTree = "<group>"; };
+		FFF3834D16CFA5BA0074CF28 /* SecondViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SecondViewController.h; path = CASSQ/SecondViewController.h; sourceTree = "<group>"; };
+		FFF3834E16CFA5BB0074CF28 /* SecondViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SecondViewController.m; path = CASSQ/SecondViewController.m; sourceTree = "<group>"; };
+		FFF3835016CFA7A00074CF28 /* ThirdViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThirdViewController.h; sourceTree = "<group>"; };
+		FFF3835116CFA7A00074CF28 /* ThirdViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThirdViewController.m; sourceTree = "<group>"; };
+		FFF3835316CFA8460074CF28 /* FourthViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FourthViewController.h; path = CASSQ/FourthViewController.h; sourceTree = "<group>"; };
+		FFF3835416CFA8460074CF28 /* FourthViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FourthViewController.m; path = CASSQ/FourthViewController.m; sourceTree = "<group>"; };
+		FFF3835616CFA8C30074CF28 /* FifthViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FifthViewController.h; path = CASSQ/FifthViewController.h; sourceTree = "<group>"; };
+		FFF3835716CFA8C40074CF28 /* FifthViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FifthViewController.m; path = CASSQ/FifthViewController.m; sourceTree = "<group>"; };
+		FFF3835916CFA9350074CF28 /* SixthViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SixthViewController.h; path = CASSQ/SixthViewController.h; sourceTree = "<group>"; };
+		FFF3835A16CFA9350074CF28 /* SixthViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SixthViewController.m; path = CASSQ/SixthViewController.m; sourceTree = "<group>"; };
+		FFF3835C16CFA9C70074CF28 /* SeventhViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SeventhViewController.h; path = CASSQ/SeventhViewController.h; sourceTree = "<group>"; };
+		FFF3835D16CFA9C70074CF28 /* SeventhViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SeventhViewController.m; path = CASSQ/SeventhViewController.m; sourceTree = "<group>"; };
+		FFF3836216CFAA4F0074CF28 /* EighthViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EighthViewController.h; path = CASSQ/EighthViewController.h; sourceTree = "<group>"; };
+		FFF3836316CFAA500074CF28 /* EighthViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EighthViewController.m; path = CASSQ/EighthViewController.m; sourceTree = "<group>"; };
+		FFF3836516CFAAF90074CF28 /* NinethViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NinethViewController.h; path = CASSQ/NinethViewController.h; sourceTree = "<group>"; };
+		FFF3836616CFAAF90074CF28 /* NinethViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NinethViewController.m; path = CASSQ/NinethViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -158,6 +182,22 @@
 				FF2F913C16CE9E59009063F4 /* QuestionViewController.m */,
 				FFF3834A16CF9AB50074CF28 /* FirstViewController.h */,
 				FFF3834B16CF9AB50074CF28 /* FirstViewController.m */,
+				FFF3834D16CFA5BA0074CF28 /* SecondViewController.h */,
+				FFF3834E16CFA5BB0074CF28 /* SecondViewController.m */,
+				FFF3835016CFA7A00074CF28 /* ThirdViewController.h */,
+				FFF3835116CFA7A00074CF28 /* ThirdViewController.m */,
+				FFF3835316CFA8460074CF28 /* FourthViewController.h */,
+				FFF3835416CFA8460074CF28 /* FourthViewController.m */,
+				FFF3835616CFA8C30074CF28 /* FifthViewController.h */,
+				FFF3835716CFA8C40074CF28 /* FifthViewController.m */,
+				FFF3835916CFA9350074CF28 /* SixthViewController.h */,
+				FFF3835A16CFA9350074CF28 /* SixthViewController.m */,
+				FFF3835C16CFA9C70074CF28 /* SeventhViewController.h */,
+				FFF3835D16CFA9C70074CF28 /* SeventhViewController.m */,
+				FFF3836216CFAA4F0074CF28 /* EighthViewController.h */,
+				FFF3836316CFAA500074CF28 /* EighthViewController.m */,
+				FFF3836516CFAAF90074CF28 /* NinethViewController.h */,
+				FFF3836616CFAAF90074CF28 /* NinethViewController.m */,
 				FF3E42C616CD2F6E00362B0B /* Connection.h */,
 				FF3E42C716CD2F6E00362B0B /* Connection.m */,
 				FF3E42C916CD323A00362B0B /* FeedStore.h */,
@@ -244,6 +284,14 @@
 				FF3E42DA16CD774B00362B0B /* Option.m in Sources */,
 				FF2F913D16CE9E59009063F4 /* QuestionViewController.m in Sources */,
 				FFF3834C16CF9AB50074CF28 /* FirstViewController.m in Sources */,
+				FFF3834F16CFA5BB0074CF28 /* SecondViewController.m in Sources */,
+				FFF3835216CFA7A00074CF28 /* ThirdViewController.m in Sources */,
+				FFF3835516CFA8460074CF28 /* FourthViewController.m in Sources */,
+				FFF3835816CFA8C40074CF28 /* FifthViewController.m in Sources */,
+				FFF3835B16CFA9350074CF28 /* SixthViewController.m in Sources */,
+				FFF3835E16CFA9C70074CF28 /* SeventhViewController.m in Sources */,
+				FFF3836416CFAA500074CF28 /* EighthViewController.m in Sources */,
+				FFF3836716CFAAFA0074CF28 /* NinethViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

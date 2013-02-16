@@ -13,7 +13,6 @@
 @interface FirstViewController : UIViewController
 
 // Public properties
-@property (nonatomic, strong) Item *item;
 @property (nonatomic, copy) NSDictionary *postSelection;
 @property (nonatomic, weak) IBOutlet UILabel *question;
 @property (nonatomic, weak) IBOutlet UITextView *answer;
