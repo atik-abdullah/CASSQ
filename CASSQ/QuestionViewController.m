@@ -1,12 +1,28 @@
-//
-//  QuestionViewController.m
-//  CASSQ
-//
-//  Created by Abdullah Atik on 2/15/13.
-//  Copyright (c) 2013 Abdullah Atik. All rights reserved.
-//
-
-// Header and Imports
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ *   QuestionViewController.m
+ *   CASS Project
+ *
+ *   Created by Abdullah Atik on 5/25/12.
+ *   Copyright ©2012 Helsinki Metropolia University of Applied Sciences.
+ *
+ *   Infomation Technology Degree Programme
+ *   Helsinki Metropolia University of Applied Sciences
+ *
+ *   This program is free software; you can redistribute it and/or modify it under the terms
+ *   of the GNU General Public License as published by the Free Software Foundation;
+ *   either version 2 of the License, or (at your option) any later version.
+ *
+ *   This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;
+ *   without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+ *   See the GNU General Public License for more details.
+ *
+ *   You should have received a copy of the GNU General Public License along with this program;
+ *   if not, write to the Free Software Foundation, Inc., 59 Temple Place, Suite 330, Boston,
+ *   MA 02111-1307 USA
+ *
+ *   Contact: Infomation Technology Degree Programme, Helsinki University of Applied Sciences,
+ *   Vanha maantie 6, 02650 Espoo, FINLAND. www.metropolia.fi
+ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 #import "QuestionViewController.h"
 
 // Private properties
@@ -17,23 +33,13 @@
 // Implmentation Begin
 @implementation QuestionViewController
 
-- (id)initWithSurvey:(Survey *)surv
-{
-    self = [super init];
-    if(self)
-    {
-        self.survey = surv;
-    }
-    return self;
-}
-
 - (void)viewWillAppear:(BOOL)animated
 {
 	[super viewWillAppear:animated];
     
-    self.survey = [self.selection objectForKey:@"survey"];
+    Survey *survey = [self.selection objectForKey:@"survey"];
     // Fetch all Item of this particular Survery
-    NSMutableArray *sortedItems = [[NSMutableArray alloc] initWithArray:[self.survey.item allObjects]];
+    NSMutableArray *sortedItems = [[NSMutableArray alloc] initWithArray:[survey.item allObjects]];
     
     // Create a sort Descriptor
     NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"q_id" ascending:YES];
@@ -129,7 +135,7 @@
     {
         // prepare selection info
         NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
-        Item *selectedItem= [self.items objectAtIndex:indexPath.row];        
+        Item *selectedItem= [self.items objectAtIndex:indexPath.row];
         NSDictionary *postSelection = [NSDictionary dictionaryWithObjectsAndKeys:
                                        selectedItem, @"selectedItem",
                                        nil];

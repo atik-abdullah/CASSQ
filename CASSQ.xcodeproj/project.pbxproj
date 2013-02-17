@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		FF2F913D16CE9E59009063F4 /* QuestionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF2F913C16CE9E59009063F4 /* QuestionViewController.m */; };
 		FF3E42A016CD273400362B0B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF3E429F16CD273400362B0B /* UIKit.framework */; };
 		FF3E42A216CD273400362B0B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF3E42A116CD273400362B0B /* Foundation.framework */; };
 		FF3E42A416CD273400362B0B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF3E42A316CD273400362B0B /* CoreGraphics.framework */; };
@@ -28,7 +27,6 @@
 		FF3E42DE16CD7A8200362B0B /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF3E42DD16CD7A8200362B0B /* CoreData.framework */; };
 		FFF3834C16CF9AB50074CF28 /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFF3834B16CF9AB50074CF28 /* FirstViewController.m */; };
 		FFF3834F16CFA5BB0074CF28 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFF3834E16CFA5BB0074CF28 /* SecondViewController.m */; };
-		FFF3835216CFA7A00074CF28 /* ThirdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFF3835116CFA7A00074CF28 /* ThirdViewController.m */; };
 		FFF3835516CFA8460074CF28 /* FourthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFF3835416CFA8460074CF28 /* FourthViewController.m */; };
 		FFF3835816CFA8C40074CF28 /* FifthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFF3835716CFA8C40074CF28 /* FifthViewController.m */; };
 		FFF3835B16CFA9350074CF28 /* SixthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFF3835A16CFA9350074CF28 /* SixthViewController.m */; };
@@ -37,11 +35,12 @@
 		FFF3836716CFAAFA0074CF28 /* NinethViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFF3836616CFAAF90074CF28 /* NinethViewController.m */; };
 		FFF3836B16CFC14D0074CF28 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFF3836916CFC0F60074CF28 /* AudioToolbox.framework */; };
 		FFF3836E16CFC1820074CF28 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFF3836C16CFC15E0074CF28 /* AVFoundation.framework */; };
+		FFF3837116D04EBE0074CF28 /* QuestionPagesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFF3837016D04EBD0074CF28 /* QuestionPagesViewController.m */; };
+		FFF3837816D04FC30074CF28 /* QuestionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFF3837716D04FBE0074CF28 /* QuestionViewController.m */; };
+		FFF3837B16D050180074CF28 /* ThirdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFF3837A16D050180074CF28 /* ThirdViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		FF2F913B16CE9E59009063F4 /* QuestionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuestionViewController.h; sourceTree = "<group>"; };
-		FF2F913C16CE9E59009063F4 /* QuestionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuestionViewController.m; sourceTree = "<group>"; };
 		FF3E429C16CD273400362B0B /* CASSQ.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CASSQ.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF3E429F16CD273400362B0B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		FF3E42A116CD273400362B0B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -74,8 +73,6 @@
 		FFF3834B16CF9AB50074CF28 /* FirstViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FirstViewController.m; path = CASSQ/FirstViewController.m; sourceTree = "<group>"; };
 		FFF3834D16CFA5BA0074CF28 /* SecondViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SecondViewController.h; path = CASSQ/SecondViewController.h; sourceTree = "<group>"; };
 		FFF3834E16CFA5BB0074CF28 /* SecondViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SecondViewController.m; path = CASSQ/SecondViewController.m; sourceTree = "<group>"; };
-		FFF3835016CFA7A00074CF28 /* ThirdViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThirdViewController.h; sourceTree = "<group>"; };
-		FFF3835116CFA7A00074CF28 /* ThirdViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThirdViewController.m; sourceTree = "<group>"; };
 		FFF3835316CFA8460074CF28 /* FourthViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FourthViewController.h; path = CASSQ/FourthViewController.h; sourceTree = "<group>"; };
 		FFF3835416CFA8460074CF28 /* FourthViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FourthViewController.m; path = CASSQ/FourthViewController.m; sourceTree = "<group>"; };
 		FFF3835616CFA8C30074CF28 /* FifthViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FifthViewController.h; path = CASSQ/FifthViewController.h; sourceTree = "<group>"; };
@@ -90,6 +87,12 @@
 		FFF3836616CFAAF90074CF28 /* NinethViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NinethViewController.m; path = CASSQ/NinethViewController.m; sourceTree = "<group>"; };
 		FFF3836916CFC0F60074CF28 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		FFF3836C16CFC15E0074CF28 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		FFF3836F16D04EBC0074CF28 /* QuestionPagesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QuestionPagesViewController.h; path = CASSQ/QuestionPagesViewController.h; sourceTree = "<group>"; };
+		FFF3837016D04EBD0074CF28 /* QuestionPagesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QuestionPagesViewController.m; path = CASSQ/QuestionPagesViewController.m; sourceTree = "<group>"; };
+		FFF3837616D04FBC0074CF28 /* QuestionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QuestionViewController.h; path = CASSQ/QuestionViewController.h; sourceTree = "<group>"; };
+		FFF3837716D04FBE0074CF28 /* QuestionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QuestionViewController.m; path = CASSQ/QuestionViewController.m; sourceTree = "<group>"; };
+		FFF3837916D050170074CF28 /* ThirdViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ThirdViewController.h; path = CASSQ/ThirdViewController.h; sourceTree = "<group>"; };
+		FFF3837A16D050180074CF28 /* ThirdViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ThirdViewController.m; path = CASSQ/ThirdViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -189,14 +192,16 @@
 				FF3E42AF16CD273500362B0B /* AppDelegate.m */,
 				FF3E42C216CD277D00362B0B /* SurveyViewController.h */,
 				FF3E42C316CD277D00362B0B /* SurveyViewController.m */,
-				FF2F913B16CE9E59009063F4 /* QuestionViewController.h */,
-				FF2F913C16CE9E59009063F4 /* QuestionViewController.m */,
+				FFF3837616D04FBC0074CF28 /* QuestionViewController.h */,
+				FFF3837716D04FBE0074CF28 /* QuestionViewController.m */,
+				FFF3836F16D04EBC0074CF28 /* QuestionPagesViewController.h */,
+				FFF3837016D04EBD0074CF28 /* QuestionPagesViewController.m */,
 				FFF3834A16CF9AB50074CF28 /* FirstViewController.h */,
 				FFF3834B16CF9AB50074CF28 /* FirstViewController.m */,
 				FFF3834D16CFA5BA0074CF28 /* SecondViewController.h */,
 				FFF3834E16CFA5BB0074CF28 /* SecondViewController.m */,
-				FFF3835016CFA7A00074CF28 /* ThirdViewController.h */,
-				FFF3835116CFA7A00074CF28 /* ThirdViewController.m */,
+				FFF3837916D050170074CF28 /* ThirdViewController.h */,
+				FFF3837A16D050180074CF28 /* ThirdViewController.m */,
 				FFF3835316CFA8460074CF28 /* FourthViewController.h */,
 				FFF3835416CFA8460074CF28 /* FourthViewController.m */,
 				FFF3835616CFA8C30074CF28 /* FifthViewController.h */,
@@ -298,16 +303,17 @@
 				FF3E42D416CD774A00362B0B /* Item.m in Sources */,
 				FF3E42D716CD774B00362B0B /* Survey.m in Sources */,
 				FF3E42DA16CD774B00362B0B /* Option.m in Sources */,
-				FF2F913D16CE9E59009063F4 /* QuestionViewController.m in Sources */,
 				FFF3834C16CF9AB50074CF28 /* FirstViewController.m in Sources */,
 				FFF3834F16CFA5BB0074CF28 /* SecondViewController.m in Sources */,
-				FFF3835216CFA7A00074CF28 /* ThirdViewController.m in Sources */,
 				FFF3835516CFA8460074CF28 /* FourthViewController.m in Sources */,
 				FFF3835816CFA8C40074CF28 /* FifthViewController.m in Sources */,
 				FFF3835B16CFA9350074CF28 /* SixthViewController.m in Sources */,
 				FFF3835E16CFA9C70074CF28 /* SeventhViewController.m in Sources */,
 				FFF3836416CFAA500074CF28 /* EighthViewController.m in Sources */,
 				FFF3836716CFAAFA0074CF28 /* NinethViewController.m in Sources */,
+				FFF3837116D04EBE0074CF28 /* QuestionPagesViewController.m in Sources */,
+				FFF3837816D04FC30074CF28 /* QuestionViewController.m in Sources */,
+				FFF3837B16D050180074CF28 /* ThirdViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

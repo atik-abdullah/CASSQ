@@ -1,5 +1,5 @@
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
- *   EighthViewController.h
+ *   ThirdViewController.h
  *   CASS Project
  *
  *   Created by Abdullah Atik on 5/25/12.
@@ -23,14 +23,21 @@
  *   Contact: Infomation Technology Degree Programme, Helsinki University of Applied Sciences,
  *   Vanha maantie 6, 02650 Espoo, FINLAND. www.metropolia.fi
  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-@interface EighthViewController : UIViewController < UINavigationControllerDelegate, UIImagePickerControllerDelegate>
+#import <AVFoundation/AVFoundation.h>
+#import <AudioToolbox/AudioToolbox.h>
+
+@interface ThirdViewController : UIViewController < AVAudioPlayerDelegate >
 
 // Public properties
 @property (nonatomic, copy) NSDictionary *postSelection;
 @property (nonatomic, weak) IBOutlet UILabel *question;
-@property (nonatomic, weak) IBOutlet UIButton *saveButton; // Needed to change the text on it inform user "Answered"
+@property (nonatomic, weak) IBOutlet UIButton *playButton;
+@property (nonatomic, weak) IBOutlet UIButton *recordButton;
+@property (nonatomic, weak) IBOutlet UIButton *saveButton;
 
-- (IBAction)recordVideo:(id)sender;
-- (IBAction)saveAnswer:(id)sender;
+- (IBAction) playPressed:(id)sender;
+- (IBAction) recordPressed:(id)sender;
+- (IBAction) saveAnswer:(id)sender;
+- (NSURL *) tempFileURL;
 
 @end

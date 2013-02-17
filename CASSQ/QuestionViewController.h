@@ -1,5 +1,5 @@
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
- *   EighthViewController.h
+ *   QuestionViewController.h
  *   CASS Project
  *
  *   Created by Abdullah Atik on 5/25/12.
@@ -23,14 +23,12 @@
  *   Contact: Infomation Technology Degree Programme, Helsinki University of Applied Sciences,
  *   Vanha maantie 6, 02650 Espoo, FINLAND. www.metropolia.fi
  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-@interface EighthViewController : UIViewController < UINavigationControllerDelegate, UIImagePickerControllerDelegate>
+#import "Survey.h"
+#import "Item.h"
 
-// Public properties
-@property (nonatomic, copy) NSDictionary *postSelection;
-@property (nonatomic, weak) IBOutlet UILabel *question;
-@property (nonatomic, weak) IBOutlet UIButton *saveButton; // Needed to change the text on it inform user "Answered"
+@interface QuestionViewController : UITableViewController
 
-- (IBAction)recordVideo:(id)sender;
-- (IBAction)saveAnswer:(id)sender;
+// Properties
+@property (nonatomic, copy) NSDictionary *selection;
 
 @end

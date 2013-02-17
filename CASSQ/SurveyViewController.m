@@ -1,16 +1,35 @@
-//
-//  SurveyViewController.m
-//  CASSQ
-//
-//  Created by Abdullah Atik on 2/14/13.
-//  Copyright (c) 2013 Abdullah Atik. All rights reserved.
-//
-
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ *   SurveyViewController.m
+ *   CASS Project
+ *
+ *   Created by Abdullah Atik on 5/25/12.
+ *   Copyright ©2012 Helsinki Metropolia University of Applied Sciences.
+ *
+ *   Infomation Technology Degree Programme
+ *   Helsinki Metropolia University of Applied Sciences
+ *
+ *   This program is free software; you can redistribute it and/or modify it under the terms
+ *   of the GNU General Public License as published by the Free Software Foundation;
+ *   either version 2 of the License, or (at your option) any later version.
+ *
+ *   This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;
+ *   without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+ *   See the GNU General Public License for more details.
+ *
+ *   You should have received a copy of the GNU General Public License along with this program;
+ *   if not, write to the Free Software Foundation, Inc., 59 Temple Place, Suite 330, Boston,
+ *   MA 02111-1307 USA
+ *
+ *   Contact: Infomation Technology Degree Programme, Helsinki University of Applied Sciences,
+ *   Vanha maantie 6, 02650 Espoo, FINLAND. www.metropolia.fi
+ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 #import "SurveyViewController.h"
 #import "FeedStore.h"
 #import "QuestionViewController.h"
+#import "QuestionPagesViewController.h"
 #import "Survey.h"
-#import <Foundation/Foundation.h>
+
+#define which 2 // change "1" to "2" or "3" to condional segue
 
 @interface SurveyViewController ()
 @property (nonatomic, strong) NSFetchedResultsController *fetchedResultsController;
@@ -30,25 +49,57 @@
 }
 
 #pragma mark- UITableView Data source
-
+//- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+//{
+//    UIViewController *destination = segue.destinationViewController;
+//    if ([destination respondsToSelector:@selector(setSelection:)])
+//    {
+//        // prepare selection info
+//        NSIndexPath *indexPath = [self.myTableView indexPathForCell:sender];
+//        Survey *selectedSurvey = (Survey *) [self.fetchedResultsController objectAtIndexPath:indexPath];
+//        NSDictionary *selection = [NSDictionary dictionaryWithObjectsAndKeys:
+//                                   selectedSurvey, @"survey",
+//                                   nil];
+//        [destination setValue:selection forKey:@"selection"];
+//    }
+//}
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    UIViewController *destination = segue.destinationViewController;
-    if ([destination respondsToSelector:@selector(setSelection:)])
-    {
-        // prepare selection info
-        NSIndexPath *indexPath = [self.myTableView indexPathForCell:sender];
-
-        Survey *selectedSurvey = (Survey *) [self.fetchedResultsController objectAtIndexPath:indexPath];
-        NSDictionary *selection = [NSDictionary dictionaryWithObjectsAndKeys:
-                                   selectedSurvey, @"survey",
-                                   nil];
-        [destination setValue:selection forKey:@"selection"];
+    switch (which) {
+        case 1:
+        {
+            UIViewController *destination = segue.destinationViewController;
+            if ([destination respondsToSelector:@selector(setSelection:)])
+            {
+                // prepare selection info
+                NSIndexPath *indexPath = [self.myTableView indexPathForCell:sender];
+                Survey *selectedSurvey = (Survey *) [self.fetchedResultsController objectAtIndexPath:indexPath];
+                NSDictionary *selection = [NSDictionary dictionaryWithObjectsAndKeys:
+                                           selectedSurvey, @"survey",
+                                           nil];
+                [destination setValue:selection forKey:@"selection"];
+            }
+            break;
+        }
+        case 2:
+        {
+            UIViewController *destination = segue.destinationViewController;
+            if ([destination respondsToSelector:@selector(setSelection:)])
+            {
+                // prepare selection info
+                NSIndexPath *indexPath = [self.myTableView indexPathForCell:sender];
+                Survey *selectedSurvey = (Survey *) [self.fetchedResultsController objectAtIndexPath:indexPath];
+                NSDictionary *selection = [NSDictionary dictionaryWithObjectsAndKeys:
+                                           selectedSurvey, @"survey",
+                                           nil];
+                [destination setValue:selection forKey:@"selection"];
+            }
+            break;
+        }
     }
 }
 
 #pragma mark- UITableView Data source
-
 - (NSInteger)tableView:(UITableView *)tableView
  numberOfRowsInSection:(NSInteger)section
 {
@@ -108,6 +159,11 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
             abort();
         }
     }
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    return @"Choose which survey you would like to answer : ";
 }
 
 - (void)setEditing:(BOOL)editing animated:(BOOL)animated
@@ -177,18 +233,17 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
 }
 
 #pragma mark - Private function
-
 - (IBAction)fetchEntries :(id) sender
 {
     [[FeedStore sharedStore] fetchRSSFeedWithCompletion:
-     ^(NSError *err){
+     ^(NSError *err)
+     {
          // When the request completes, this block will be called.
          if (!err)
          {
              // Implement the
              [[self myTableView] reloadData];
          }
-         
          else
          {
              // If things went bad, show an alert view
@@ -206,7 +261,6 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
 - (IBAction)toggleEdit:(id)sender
 {
     [self.myTableView setEditing:!self.myTableView.editing animated:YES];
-    
     if (self.myTableView.editing)
         [self.editButton setTitle:@"Done"]; // To set the title
     else
